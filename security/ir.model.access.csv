@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_persona","persona","model_persona","base.group_user",1,0,0,0
+"access_estado","estado","model_estado","base.group_user",1,0,0,0
+"access_municipio","municipio","model_municipio","base.group_user",1,0,0,0
+"access_parroquia","parroquia","model_parroquia","base.group_user",1,0,0,0
+"access_vivienda","vivienda","model_vivienda","base.group_user",1,0,0,0
+"access_socio_economico","socio_economico","model_socio_economico","base.group_user",1,0,0,0
+"access_unidad_productiva","unidad_productiva","model_unidad_productiva","base.group_user",1,0,0,0
