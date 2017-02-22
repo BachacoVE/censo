@@ -190,6 +190,7 @@
                 <field name="condicion" select="2"/>
                 <field name="tenencia" select="0"/>
                 <field name="tipo" select="0"/>
+                <field name="conexion_internet" select="0"/>
                 <!--separator string='Persona' colspan="4"/>
                 <field name="persona_ids" colspan="4" nolabel="1" select="0"/ -->
 
@@ -207,6 +208,7 @@
                 <field name="condicion"/>
                 <field name="tenencia"/>
                 <field name="tipo"/>
+                <field name="conexion_internet"/>
 
             </tree>
         </field>
@@ -274,7 +276,10 @@
             <group col="4" colspan="2">
                 <field name="nombre" select="1"/>
                 <field name="tipo_industria" select="2"/>
-                <field name="tipo_tegnologia" select="0"/>
+                <field name="tipo_tecnologia" select="0"/>
+                <field name="tecnologia_usa" select="0"/>
+                <field name="uso_diario" select="0"/>
+                <field name="domina" select="0"/>
                 <!--separator string='Persona' colspan="4"/>
                 <field name="personas_ids" colspan="4" nolabel="1" select="0"/-->
 
@@ -290,8 +295,10 @@
             <tree string="unidad_productiva">
                 <field name="nombre"/>
                 <field name="tipo_industria"/>
-                <field name="tipo_tegnologia"/>
-
+                <field name="tipo_tecnologia"/>
+                <field name="tecnologia_usa"/>
+                <field name="uso_diario"/>
+                <field name="domina"/>
             </tree>
         </field>
     </record>

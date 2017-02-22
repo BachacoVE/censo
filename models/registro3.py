@@ -78,8 +78,10 @@ class vivienda(models.Model):
     fecha_registro = fields.Date(string='Fecha de Registro', help='Selecciones su fecha de registro. Seleccionando la fecha en el asistente o escribiendola en el formato 01/01/1999')
     condicion = fields.Selection([('E','Estable',),('I','Inestable'),('A','Altoriesgo'),('V','Vulnerable')], string='Condicion', help='Seleccione la condicion de la vivienda ')
     tenencia = fields.Selection([('P','Propia',),('A','Alquilada'),('C','Compartida'),('I','Invadida')], string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
-    tipo = fields.Selection([('Q','Quinta',),('CA','Casa'),('A','Apartamento'),('R','Rancho')], string='Tipo', help='seleccione el tipo de vivienda actual')
+    tipo = fields.Selection([('Q','Quinta',),('CA','Casa'),('A','Apartamento'),('R','Rancho'),('AN','Anexo')], string='Tipo', help='seleccione el tipo de vivienda actual')
+    conexion_internet = fields.Boolean(string='¿Tiene Conexcion Internet', help='la persona tildara si tiene conexion a internet')
     persona_ids = fields.Many2many('persona',string='Persona')
+
 
 
 class socio_economico(models.Model):
@@ -102,7 +104,10 @@ class unidad_productiva(models.Model):
     #_rec_name = ''
     nombre = fields.Char(string='Nombre de la industria tecnologica', help='la persona podra colocar el nombre de su industria')
     tipo_industria = fields.Selection([('G','Grupal'),('F','Freelance'),('C','Cooperativa')], string='Tipo', help='la persona indicara el tipo de industria')
-    tipo_tegnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
+    tipo_tecnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
+    tecnologia_usa = fields.Char(string='¿Que tipo de tecnologia usa?', help='la persona especifica el tipo de tegnologia que usa ')
+    uso_diario = fields.Char(string='¿La usas a diario?', help='la persona especifica el uso diario ')
+    domina = fields.Char(string='¿Cuales dominas?', help='la persona especifica cual herramienta tecnologica domina ')
     personas_ids = fields.Many2many('persona', string='Persona')
 
 
