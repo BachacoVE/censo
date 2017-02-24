@@ -40,7 +40,7 @@ class persona(models.Model):
     municipio_id = fields.Many2one('municipio', string='Municipio')
     parroquia_id = fields.Many2one('parroquia', string='Parroquia')
     vivienda_ids = fields.Many2many('vivienda',string='Vivienda')
-    socio_economico_id = fields.Many2one('socio_economico',string='Socio Economico')
+    socio_economico_id = fields.One2many('socio_economico','persona_ids',string='socio_economico')
     unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
 
 
@@ -48,8 +48,8 @@ class estado(models.Model):
     """Modelo que registra el estado"""
     _name = 'estado'
     #_rec_name = ''
-    code = fields.Char()
-    name = fields.Char()
+    code = fields.Char(string='Code', help='Ingresar un codigo para el estado')
+    name = fields.Char(string='Name', help='Ingresar el nombre del estado')
     municipio_ids = fields.One2many('municipio','estado_id',string='municipio')
 
 
@@ -57,18 +57,18 @@ class municipio(models.Model):
     """Modulo que registra el municipio"""
     _name = 'municipio'
     #_rec_name = ''
-    code = fields.Char()
-    name = fields.Char()
-    estado_id = fields.Many2one('estado',string='Estado')
+    code = fields.Char(string='Code', help='Ingresar un codigo para el municipio')
+    name = fields.Char(string='Name', help='Ingresar el nombre del municipio')
+    estado_id = fields.Many2one('estado',string='Estado', help='Seleccione su Estado ')
 
 
 class parroquia(models.Model):
     """Modulo que registra la parroquia """
     _name = 'parroquia'
     #_rec_name = ''
-    code = fields.Char()
-    name = fields.Char()
-    municipio_id = fields.Many2one('municipio',string='municipio')
+    code = fields.Char(string='Code', help='Ingresar un codigo para el parroquia')
+    name = fields.Char(string='Name', help='Ingresar el nombre del parroquia')
+    municipio_id = fields.Many2one('municipio',string='municipio', help='Seleccione su Municipio ')
 
 
 class vivienda(models.Model):
@@ -79,7 +79,9 @@ class vivienda(models.Model):
     condicion = fields.Selection([('E','Estable',),('I','Inestable'),('A','Altoriesgo'),('V','Vulnerable')], string='Condicion', help='Seleccione la condicion de la vivienda ')
     tenencia = fields.Selection([('P','Propia',),('A','Alquilada'),('C','Compartida'),('I','Invadida')], string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
     tipo = fields.Selection([('Q','Quinta',),('CA','Casa'),('A','Apartamento'),('R','Rancho'),('AN','Anexo')], string='Tipo', help='seleccione el tipo de vivienda actual')
-    conexion_internet = fields.Boolean(string='¿Tiene Conexcion Internet', help='la persona tildara si tiene conexion a internet')
+    television = fields.Boolean(string='Television', help='la persona tildara si posee television')
+    computadora = fields.Boolean(string='Computadora', help='la persona tildara si posee computadora')
+    internet = fields.Boolean(string='Internet', help='la persona tildara si posee internet')
     persona_ids = fields.Many2many('persona',string='Persona')
 
 
@@ -90,12 +92,13 @@ class socio_economico(models.Model):
     #_rec_name = ''
     discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
     cantidad_hijos= fields.Selection([('O','Ninguno'),('I','Uno'),('II','Dos'),('III','Tres'),('IV','Cuatro'),('Mas','Mas de 4')], help='la persona indicara si tiene hijos')
-    grupo_familiar = fields.Selection([('I','Uno'),('II','Dos'),('III','Tres'),('IV','Cuatro')],string='Grupo Familiar', help='La persona podra espicificar su carga familiar')
+    grupo_familiar = fields.Selection([('II','Dos'),('III','Tres'),('IV','Cuatro'),('V','Cinco'),('Ma','Mas 5')],string='Grupo Familiar', help='La persona podra espicificar su carga familiar')
     ocupacion = fields.Char(string='¿Cual es su ocupacion?', help='la persona especifica la ocupacion')
     ingreso_mensual = fields.Float(string='Ingreso Mensual', help='La persona indicara su ingreso mensual')
     grado_instruccion = fields.Char(string='¿cual es su grado de instruccion?', help='la persona indicara el grado de isntruccion')
     trabaja = fields.Boolean(string='¿Trabaja actualmente?', help='la persona indacara si posee trabajo')
-    persona_ids = fields.Many2one('persona',string='Persona')
+    estado_civil =fields.Selection([('S','Soltero(a)'),('C','Casado(a)'),('Se','Separado(a)'),('Di','Divorciado(a)'),('Vi','Viudo(a)')],string='Estado civil', help='La persona podra espicificar el estado civil')
+    persona_ids = fields.Many2one('persona',string='persona')
 
 
 class unidad_productiva(models.Model):
@@ -106,8 +109,8 @@ class unidad_productiva(models.Model):
     tipo_industria = fields.Selection([('G','Grupal'),('F','Freelance'),('C','Cooperativa')], string='Tipo', help='la persona indicara el tipo de industria')
     tipo_tecnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
     tecnologia_usa = fields.Char(string='¿Que tipo de tecnologia usa?', help='la persona especifica el tipo de tegnologia que usa ')
-    uso_diario = fields.Char(string='¿La usas a diario?', help='la persona especifica el uso diario ')
-    domina = fields.Char(string='¿Cuales dominas?', help='la persona especifica cual herramienta tecnologica domina ')
+    uso_diario = fields.Char(string='Cual usas a diario?', help='la persona especifica el uso diario ')
+    domina = fields.Char(string='¿Cuales Dominas?', help='la persona especifica cual herramienta tecnologica domina ')
     personas_ids = fields.Many2many('persona', string='Persona')
 
 
