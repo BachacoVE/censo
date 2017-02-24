@@ -3,18 +3,17 @@
 
 ## Propósito: 
 
-    Cuantificar y calificar el movimiento de tecnologías libre en Venezuela, su impacto desde Diciembre 2004, los puntos de inflexión, sus operaciones,  su caracterización, (usuario, 
-activista, productor, etc). Categoriza según área o sector (tecnología, educación, medio de comunicación, investigación, industria, gestión de procesos. Cuantificar el uso de determinadas tecnologías, diferencias, el ámbito de uso, (APN, universidades, hogares, empresa) cantidad de unidad productiva, (grupo o freelance)  instituciones socio económicas, experiencia laboral, generar un libro PDF donde relata la historia de la tecnología libre en Venezuela, sus principales hitos. 
+Cuantificar y calificar el movimiento de tecnologías libre en Venezuela, su impacto desde Diciembre 2004, los puntos de inflexión, sus operaciones,  su caracterización, (usuario, activista, productor, etc). Categoriza según área o sector (tecnología, educación, medio de comunicación, investigación, industria, gestión de procesos. Cuantificar el uso de determinadas tecnologías, diferencias, el ámbito de uso, (APN, universidades, hogares, empresa) cantidad de unidad productiva, (grupo o freelance)  instituciones socio económicas, experiencia laboral, generar un libro PDF donde relata la historia de la tecnología libre en Venezuela, sus principales hitos. 
 
-    La encuesta debe ser en linea, especificando datos personales, utilizar el correo para comunicarse con  el encuestado, Política de privacidad  en cuanto a los datos personales pero permitiendo contactar a la persona, permite registrar a las personas interesadas en integrarse a la comunidad.
+La encuesta debe ser en linea, especificando datos personales, utilizar el correo para comunicarse con  el encuestado, Política de privacidad  en cuanto a los datos personales pero permitiendo contactar a la persona, permite registrar a las personas interesadas en integrarse a la comunidad.
 
 ## Definición:
 
-    Los censos son operaciones estadísticas orientadas a obtener datos sobre la totalidad de los elementos que componen el universo en estudio, y fundamentalmente generan información de carácter estructural. En el caso de un censo nacional de Tecnología Libre, se trata de revelar las principales características de las personas con el fin de Cuantificar y calificar el movimiento de tecnologías libre en Venezuela.
+Los censos son operaciones estadísticas orientadas a obtener datos sobre la totalidad de los elementos que componen el universo en estudio, y fundamentalmente generan información de carácter estructural. En el caso de un censo nacional de Tecnología Libre, se trata de revelar las principales características de las personas con el fin de Cuantificar y calificar el movimiento de tecnologías libre en Venezuela.
 
 ## Finalidad:
 
-    La finalidad fundamental del Censo de Tecnologías Libres es proporcionar los datos que se necesitan para conocer cuales son las personas interesadas en integrarse a la comunidad que apuesta a la distribución del conocimiento de forma libre como instrumento de desarrollo de la sociedad. 
+La finalidad fundamental del Censo de Tecnologías Libres es proporcionar los datos que se necesitan para conocer cuales son las personas interesadas en integrarse a la comunidad que apuesta a la distribución del conocimiento de forma libre como instrumento de desarrollo de la sociedad. 
 ## Descripción por módulos:
 
 ### Persona:
