@@ -10,6 +10,7 @@
             <form string="persona">
             <group col="4" colspan="1">
                 <field name="cedula" select="1"/>
+                <field name="rif" select="1"/>
                 <field name="primer_nombre" select="2"/>
                 <field name="segundo_nombre" select="0"/>
                 <field name="primer_apellido" select="0"/>
@@ -41,6 +42,7 @@
         <field name="arch" type="xml">
             <tree string="persona">
                 <field name="cedula"/>
+                <field name="rif"/>
                 <field name="primer_nombre"/>
                 <field name="segundo_nombre"/>
                 <field name="primer_apellido"/>
@@ -281,6 +283,10 @@
             <form string="unidad_productiva">
             <group col="4" colspan="2">
                 <field name="nombre" select="1"/>
+                <field name="rif" select="1"/>
+                <field name="correo" select="1"/>
+                <field name="facebook" select="1"/>
+                <field name="twitter" select="1"/>
                 <field name="tipo_industria" select="2"/>
                 <field name="tipo_tecnologia" select="0"/>
                 <field name="tecnologia_usa" select="0"/>
@@ -300,6 +306,10 @@
         <field name="arch" type="xml">
             <tree string="unidad_productiva">
                 <field name="nombre"/>
+                <field name="rif"/>
+                <field name="correo"/>
+                <field name="facebook"/>
+                <field name="twitter"/>
                 <field name="tipo_industria"/>
                 <field name="tipo_tecnologia"/>
                 <field name="tecnologia_usa"/>

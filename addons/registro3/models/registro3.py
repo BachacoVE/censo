@@ -26,6 +26,7 @@ class persona(models.Model):
     _name = 'persona'
     #_rec_name = ''
     cedula = fields.Integer(string='Cedula', help='Ingrese su cédula en el formato 16123123')
+    rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
     primer_nombre = fields.Char(string= 'Primer Nombre', help='Ingrese su primer nombre. Ejemplo: Crisbel')
     segundo_nombre = fields.Char(string= 'Segundo Nombre', help='Ingrese su segundo nombre Ejemplo: Francisas')
     primer_apellido = fields.Char(string= 'Primer apellido', help='Ingrese su Primer apellido Ejemplo: Pinzon')
@@ -106,6 +107,10 @@ class unidad_productiva(models.Model):
     _name = 'unidad_productiva'
     #_rec_name = ''
     nombre = fields.Char(string='Nombre de la industria tecnologica', help='la persona podra colocar el nombre de su industria')
+    rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
+    correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
+    facebook = fields.Char(string='Facebook', help='Ingrese su facebook con el nombre de su unidad profuctivad')
+    twitter = fields.Char(string='Twitter', help='Ingrese su twitter con el nombre de su unidad profuctivad')
     tipo_industria = fields.Selection([('G','Grupal'),('F','Freelance'),('C','Cooperativa')], string='Tipo', help='la persona indicara el tipo de industria')
     tipo_tecnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
     tecnologia_usa = fields.Char(string='¿Que tipo de tecnologia usa?', help='la persona especifica el tipo de tegnologia que usa ')
