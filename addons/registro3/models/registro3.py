@@ -90,7 +90,7 @@ class vivienda(models.Model):
 class socio_economico(models.Model):
     """registra el nivel socio ecnonomico de la persona"""
     _name = 'socio_economico'
-    #_rec_name = ''
+    _rec_name = 'ingreso_mensual'
     discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
     cantidad_hijos= fields.Selection([('O','Ninguno'),('I','Uno'),('II','Dos'),('III','Tres'),('IV','Cuatro'),('Mas','Mas de 4')], help='la persona indicara si tiene hijos')
     grupo_familiar = fields.Selection([('II','Dos'),('III','Tres'),('IV','Cuatro'),('V','Cinco'),('Ma','Mas 5')],string='Grupo Familiar', help='La persona podra espicificar su carga familiar')
@@ -105,7 +105,7 @@ class socio_economico(models.Model):
 class unidad_productiva(models.Model):
     """la persona registra su inidad productiva"""
     _name = 'unidad_productiva'
-    #_rec_name = ''
+    _rec_name = 'nombre'
     nombre = fields.Char(string='Nombre de la industria tecnologica', help='la persona podra colocar el nombre de su industria')
     rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
     correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
