@@ -24,7 +24,7 @@ from openerp import api, fields, models
 class persona(models.Model):
     """Modelo que se utiliza para registrar los datos basicos de cada participante del curso"""
     _name = 'persona'
-    #_rec_name = ''
+    _rec_name = 'cedula'
     cedula = fields.Integer(string='Cedula', help='Ingrese su cédula en el formato 16123123')
     rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
     primer_nombre = fields.Char(string= 'Primer Nombre', help='Ingrese su primer nombre. Ejemplo: Crisbel')
@@ -48,7 +48,7 @@ class persona(models.Model):
 class estado(models.Model):
     """Modelo que registra el estado"""
     _name = 'estado'
-    #_rec_name = ''
+    _rec_name = 'code'
     code = fields.Char(string='Code', help='Ingresar un codigo para el estado')
     name = fields.Char(string='Name', help='Ingresar el nombre del estado')
     municipio_ids = fields.One2many('municipio','estado_id',string='municipio')
@@ -57,7 +57,7 @@ class estado(models.Model):
 class municipio(models.Model):
     """Modulo que registra el municipio"""
     _name = 'municipio'
-    #_rec_name = ''
+    _rec_name = 'code'
     code = fields.Char(string='Code', help='Ingresar un codigo para el municipio')
     name = fields.Char(string='Name', help='Ingresar el nombre del municipio')
     estado_id = fields.Many2one('estado',string='Estado', help='Seleccione su Estado ')
@@ -66,7 +66,7 @@ class municipio(models.Model):
 class parroquia(models.Model):
     """Modulo que registra la parroquia """
     _name = 'parroquia'
-    #_rec_name = ''
+    _rec_name = 'code'
     code = fields.Char(string='Code', help='Ingresar un codigo para el parroquia')
     name = fields.Char(string='Name', help='Ingresar el nombre del parroquia')
     municipio_id = fields.Many2one('municipio',string='municipio', help='Seleccione su Municipio ')
@@ -75,7 +75,7 @@ class parroquia(models.Model):
 class vivienda(models.Model):
     """Registro vivienda clase persona"""
     _name = 'vivienda'
-    #_rec_name = ''
+    _rec_name = 'fecha_registro'
     fecha_registro = fields.Date(string='Fecha de Registro', help='Selecciones su fecha de registro. Seleccionando la fecha en el asistente o escribiendola en el formato 01/01/1999')
     condicion = fields.Selection([('E','Estable',),('I','Inestable'),('A','Altoriesgo'),('V','Vulnerable')], string='Condicion', help='Seleccione la condicion de la vivienda ')
     tenencia = fields.Selection([('P','Propia',),('A','Alquilada'),('C','Compartida'),('I','Invadida')], string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')

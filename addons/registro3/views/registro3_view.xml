@@ -66,6 +66,7 @@
         <field name="res_model">persona</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        
     </record>
     
 
@@ -326,12 +327,12 @@
     </record>
     
 <menuitem name="Censo/Registro/Persona" id="menu_persona" action="action_persona"/>
-<menuitem name="Estado" id="menu_estado" action="action_estado" parent="menu_persona"/>
-<menuitem name="Municipio" id="menu_municipio" action="action_municipio" parent="menu_persona"/>
-<menuitem name="Parroquia" id="menu_parroquia" action="action_parroquia" parent="menu_persona"/>
-<menuitem name="Vivienda" id="menu_vivienda" action="action_vivienda" parent="menu_persona"/>
-<menuitem name="Socio Economico" id="menu_socio_economico" action="action_socio_economico" parent="menu_persona"/>
-<menuitem name="Unidad Productiva" id="menu_unidad_productiva" action="action_unidad_productiva" parent="menu_persona"/>
-        
+<menuitem name="Censo/Registro/Vivienda" id="menu_vivienda" action="action_vivienda"/>
+<menuitem name="Censo/Registro/socio_economico" id="menu_socio_economico" action="action_socio_economico"/>
+<menuitem name="Censo/Registro/unidad_productiva" id="menu_unidad_productiva" action="action_unidad_productiva"/>
+<menuitem name="Censo/Configuracion/Estado" id="menu_estado" action="action_estado"/>
+<menuitem name="Censo/Configuracion/Municipio" id="menu_municipio" action="action_municipio"/>
+<menuitem name="Censo/Configuracion/Parroquia" id="menu_parroquia" action="action_parroquia"/>
+
 </data>
 </openerp>
