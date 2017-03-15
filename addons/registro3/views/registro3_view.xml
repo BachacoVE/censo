@@ -288,13 +288,13 @@
                 <field name="correo" select="1"/>
                 <field name="facebook" select="1"/>
                 <field name="twitter" select="1"/>
-                <field name="tipo_industria" select="2"/>
+                <!--field name="tipo_industria" select="2"/>
                 <field name="tipo_tecnologia" select="0"/>
                 <field name="tecnologia_usa" select="0"/>
                 <field name="uso_diario" select="0"/>
-                <field name="domina" select="0"/>
-                <!--separator string='Persona' colspan="4"/>
-                <field name="personas_ids" colspan="4" nolabel="1" select="0"/-->
+                <field name="domina" select="0"/-->
+                <separator string='tecnologia' colspan="4"/>
+                <field name="tecnologia_ids" colspan="4" nolabel="1" select="0"/>
 
             </group>
             </form>
@@ -311,11 +311,11 @@
                 <field name="correo"/>
                 <field name="facebook"/>
                 <field name="twitter"/>
-                <field name="tipo_industria"/>
+                <!--field name="tipo_industria"/>
                 <field name="tipo_tecnologia"/>
                 <field name="tecnologia_usa"/>
                 <field name="uso_diario"/>
-                <field name="domina"/>
+                <field name="domina"/-->
             </tree>
         </field>
     </record>
@@ -325,11 +325,46 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+
+    <record model="ir.ui.view" id="view_tecnologia_form">
+        <field name="name">tecnologia.form</field>
+        <field name="model">tecnologia</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="tecnologia">
+            <group col="4" colspan="2">
+                <field name="tecnologia_domina" select="1"/>
+                <field name="uso_diario" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tecnologia_tree">
+        <field name="name">tecnologia.tree</field>
+        <field name="model">tecnologia</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="estado">
+                <field name="tecnologia_domina"/>
+                <field name="uso_diario"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tecnologia">
+        <field name="name">tecnologia</field>
+        <field name="res_model">tecnologia</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
     
 <menuitem name="Censo/Registro/Persona" id="menu_persona" action="action_persona"/>
 <menuitem name="Censo/Registro/Vivienda" id="menu_vivienda" action="action_vivienda"/>
 <menuitem name="Censo/Registro/socio_economico" id="menu_socio_economico" action="action_socio_economico"/>
 <menuitem name="Censo/Registro/unidad_productiva" id="menu_unidad_productiva" action="action_unidad_productiva"/>
+<menuitem name="Censo/Registro/tecnologia" id="menu_tecnologia" action="action_tecnologia"/>
 <menuitem name="Censo/Configuracion/Estado" id="menu_estado" action="action_estado"/>
 <menuitem name="Censo/Configuracion/Municipio" id="menu_municipio" action="action_municipio"/>
 <menuitem name="Censo/Configuracion/Parroquia" id="menu_parroquia" action="action_parroquia"/>

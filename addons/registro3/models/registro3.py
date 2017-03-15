@@ -112,10 +112,18 @@ class unidad_productiva(models.Model):
     facebook = fields.Char(string='Facebook', help='Ingrese su facebook con el nombre de su unidad profuctivad')
     twitter = fields.Char(string='Twitter', help='Ingrese su twitter con el nombre de su unidad profuctivad')
     tipo_industria = fields.Selection([('G','Grupal'),('F','Freelance'),('C','Cooperativa')], string='Tipo', help='la persona indicara el tipo de industria')
-    tipo_tecnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
-    tecnologia_usa = fields.Char(string='¿Que tipo de tecnologia usa?', help='la persona especifica el tipo de tegnologia que usa ')
-    uso_diario = fields.Char(string='Cual usas a diario?', help='la persona especifica el uso diario ')
-    domina = fields.Char(string='¿Cuales Dominas?', help='la persona especifica cual herramienta tecnologica domina ')
+    #tipo_tecnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
+    #tecnologia_usa = fields.Char(string='¿Que tipo de tecnologia usa?', help='la persona especifica el tipo de tegnologia que usa ')
+    #uso_diario = fields.Char(string='Cual usas a diario?', help='la persona especifica el uso diario ')
+    #domina = fields.Char(string='¿Cuales Dominas?', help='la persona especifica cual herramienta tecnologica domina ')
     personas_ids = fields.Many2many('persona', string='Persona')
+    tecnologia_ids = fields.Many2many('tecnologia', string='Tecnologia')
 
+class tecnologia(models.Model):
+    """Modelo que registra la tecnologia"""
+    _name = 'tecnologia'
+    #_rec_name = 'tecnologia'
+    tecnologia_domina = fields.Char(string='Tecnologia que domina', help='Ingresar la tecnologia que domina')
+    uso_diario = fields.Char(string='cual es el uso diario ', help='Ingresar el uso diario de la tecnologia que domina ')
+    unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
 
