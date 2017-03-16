@@ -26,7 +26,7 @@
         "website" : "http://www.bachaco.org.ve",
         "category" : "Desconocida",
         "description": """  """,
-        "depends" : ['base'],
+        "depends" : ['base','l10n_ve_dpt'],
         "init_xml" : [ ],
         "demo_xml" : [ ],
         "update_xml" : ['views/registro_view.xml', 'security/ir.model.access.csv'],

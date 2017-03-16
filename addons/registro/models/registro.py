@@ -37,40 +37,12 @@ class persona(models.Model):
     telefono = fields.Char(string='Télefono', help='Ingrese su télefono en el formato 0414-9355744')
     correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
     vinculacion_tecnologica = fields.Selection([('A','Activista'),('U','Usuario'),('P','Productor')], string ='Vinculacion Tecnologica' , help='Ingrese su vinculacion tecnologica')
-    estado_id = fields.Many2one('estado', string='Estado')
+    estado_id = fields.Many2one('res.country.state', string='Estado')
     municipio_id = fields.Many2one('municipio', string='Municipio')
     parroquia_id = fields.Many2one('parroquia', string='Parroquia')
     vivienda_ids = fields.Many2many('vivienda',string='Vivienda')
     socio_economico_id = fields.One2many('socio_economico','persona_ids',string='socio_economico')
     unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
-
-
-class estado(models.Model):
-    """Modelo que registra el estado"""
-    _name = 'estado'
-    _rec_name = 'code'
-    code = fields.Char(string='Code', help='Ingresar un codigo para el estado')
-    name = fields.Char(string='Name', help='Ingresar el nombre del estado')
-    municipio_ids = fields.One2many('municipio','estado_id',string='municipio')
-
-
-class municipio(models.Model):
-    """Modulo que registra el municipio"""
-    _name = 'municipio'
-    _rec_name = 'code'
-    code = fields.Char(string='Code', help='Ingresar un codigo para el municipio')
-    name = fields.Char(string='Name', help='Ingresar el nombre del municipio')
-    estado_id = fields.Many2one('estado',string='Estado', help='Seleccione su Estado ')
-
-
-class parroquia(models.Model):
-    """Modulo que registra la parroquia """
-    _name = 'parroquia'
-    _rec_name = 'code'
-    code = fields.Char(string='Code', help='Ingresar un codigo para el parroquia')
-    name = fields.Char(string='Name', help='Ingresar el nombre del parroquia')
-    municipio_id = fields.Many2one('municipio',string='municipio', help='Seleccione su Municipio ')
-
 
 class vivienda(models.Model):
     """Registro vivienda clase persona"""
