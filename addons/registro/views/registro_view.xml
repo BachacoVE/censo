@@ -71,115 +71,6 @@
     
 
         
-    <record model="ir.ui.view" id="view_estado_form">
-        <field name="name">estado.form</field>
-        <field name="model">estado</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="estado">
-            <group col="4" colspan="2">
-                <field name="code" select="1"/>
-                <field name="name" select="2"/>
-                <separator string='municipio' colspan="4"/>
-                <field name="municipio_ids" colspan="4" nolabel="1" select="0"/>
-
-            </group>
-            </form>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="view_estado_tree">
-        <field name="name">estado.tree</field>
-        <field name="model">estado</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="estado">
-                <field name="code"/>
-                <field name="name"/>
-
-            </tree>
-        </field>
-    </record>
-    <record model="ir.actions.act_window" id="action_estado">
-        <field name="name">estado</field>
-        <field name="res_model">estado</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
-
-        
-    <record model="ir.ui.view" id="view_municipio_form">
-        <field name="name">municipio.form</field>
-        <field name="model">municipio</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="municipio">
-            <group col="4" colspan="2">
-                <field name="code" select="1"/>
-                <field name="name" select="2"/>
-                <field name="estado_id" select="0"/>
-
-            </group>
-            </form>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="view_municipio_tree">
-        <field name="name">municipio.tree</field>
-        <field name="model">municipio</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="municipio">
-                <field name="code"/>
-                <field name="name"/>
-                <field name="estado_id"/>
-
-            </tree>
-        </field>
-    </record>
-    <record model="ir.actions.act_window" id="action_municipio">
-        <field name="name">municipio</field>
-        <field name="res_model">municipio</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
-
-        
-    <record model="ir.ui.view" id="view_parroquia_form">
-        <field name="name">parroquia.form</field>
-        <field name="model">parroquia</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="parroquia">
-            <group col="4" colspan="2">
-                <field name="code" select="1"/>
-                <field name="name" select="2"/>
-                <field name="municipio_id" select="0"/>
-
-            </group>
-            </form>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="view_parroquia_tree">
-        <field name="name">parroquia.tree</field>
-        <field name="model">parroquia</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="parroquia">
-                <field name="code"/>
-                <field name="name"/>
-                <field name="municipio_id"/>
-
-            </tree>
-        </field>
-    </record>
-    <record model="ir.actions.act_window" id="action_parroquia">
-        <field name="name">parroquia</field>
-        <field name="res_model">parroquia</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
 
         
     <record model="ir.ui.view" id="view_vivienda_form">
@@ -428,9 +319,9 @@
     
     <menuitem name="Configuracion" id="menu_configuracion" parent="menu_censo"/>
         <menuitem name="DPT" id="menu_dpt" parent="menu_configuracion"/>
-            <menuitem name="Estado" id="menu_estado" action="action_estado" parent="menu_dpt"/>
-            <menuitem name="Municipio" id="menu_municipio" action="action_municipio" parent="menu_dpt"/>
-            <menuitem name="Parroquia" id="menu_parroquia" action="action_parroquia" parent="menu_dpt"/>
+            <!--menuitem name="Estado" id="menu_estado" action="action_estado" parent="menu_dpt"/-->
+            <menuitem name="Municipio" id="menu_municipio" action="l10n_ve_dpt.action_municipio" parent="menu_dpt"/>
+            <menuitem name="Parroquia" id="menu_parroquia" action="l10n_ve_dpt.action_parroquia" parent="menu_dpt"/>
 
 </data>
 </openerp>
