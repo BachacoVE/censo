@@ -239,11 +239,11 @@
                 <field name="discapacidad" select="0"/>
                 <field name="cantidad_hijos" select="1"/>
                 <field name="grupo_familiar" select="0"/>
-                <field name="ocupacion" select="0"/>
                 <field name="ingreso_mensual" select="0"/>
-                <field name="grado_instruccion" select="0"/>
                 <field name="trabaja" select="0"/>
                 <field name="estado_civil" select="0"/>
+                <field name="ocupacion_id" select="0"/>
+                <field name="grado_instruccion_id" select="0"/>
 
             </group>
             </form>
@@ -258,11 +258,11 @@
                 <field name="discapacidad"/>
                 <field name="cantidad_hijos"/>
                 <field name="grupo_familiar"/>
-                <field name="ocupacion"/>
                 <field name="ingreso_mensual"/>
-                <field name="grado_instruccion"/>
                 <field name="trabaja"/>
                 <field name="estado_civil"/>
+                <field name="ocupacion_id"/>
+                <field name="grado_instruccion_id"/>
 
             </tree>
         </field>
@@ -288,11 +288,7 @@
                 <field name="correo" select="1"/>
                 <field name="facebook" select="1"/>
                 <field name="twitter" select="1"/>
-                <!--field name="tipo_industria" select="2"/>
-                <field name="tipo_tecnologia" select="0"/>
-                <field name="tecnologia_usa" select="0"/>
-                <field name="uso_diario" select="0"/>
-                <field name="domina" select="0"/-->
+                <field name="servicio" select="1"/>
                 <separator string='tecnologia' colspan="4"/>
                 <field name="tecnologia_ids" colspan="4" nolabel="1" select="0"/>
 
@@ -311,11 +307,7 @@
                 <field name="correo"/>
                 <field name="facebook"/>
                 <field name="twitter"/>
-                <!--field name="tipo_industria"/>
-                <field name="tipo_tecnologia"/>
-                <field name="tecnologia_usa"/>
-                <field name="uso_diario"/>
-                <field name="domina"/-->
+                 <field name="servicio"/>
             </tree>
         </field>
     </record>
@@ -359,15 +351,86 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+     <record model="ir.ui.view" id="view_ocupacion_form">
+        <field name="name">ocupacion.form</field>
+        <field name="model">ocupacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="ocupacion">
+            <group col="4" colspan="2">
+                <field name="ocupacion_personal" select="1"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_ocupacion_tree">
+        <field name="name">ocupacion.tree</field>
+        <field name="model">ocupacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="ocupacion">
+                <field name="ocupacion_personal"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_ocupacion">
+        <field name="name">ocupacion</field>
+        <field name="res_model">ocupacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_grado_instruccion_form">
+        <field name="name">grado_instruccion.form</field>
+        <field name="model">grado_instruccion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="grado_instruccion">
+            <group col="4" colspan="2">
+                <field name="grado_instruccion_personal" select="1"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_grado_instruccion_tree">
+        <field name="name">grado_instruccion.tree</field>
+        <field name="model">grado_instruccion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="grado_instruccion">
+                <field name="grado_instruccion_personal"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_grado_instruccion">
+        <field name="name">grado_instruccion</field>
+        <field name="res_model">grado_instruccion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     
-<menuitem name="Censo/Registro/Persona" id="menu_persona" action="action_persona"/>
-<menuitem name="Censo/Registro/Vivienda" id="menu_vivienda" action="action_vivienda"/>
-<menuitem name="Censo/Registro/socio_economico" id="menu_socio_economico" action="action_socio_economico"/>
-<menuitem name="Censo/Registro/unidad_productiva" id="menu_unidad_productiva" action="action_unidad_productiva"/>
-<menuitem name="Censo/Registro/tecnologia" id="menu_tecnologia" action="action_tecnologia"/>
-<menuitem name="Censo/Configuracion/Estado" id="menu_estado" action="action_estado"/>
-<menuitem name="Censo/Configuracion/Municipio" id="menu_municipio" action="action_municipio"/>
-<menuitem name="Censo/Configuracion/Parroquia" id="menu_parroquia" action="action_parroquia"/>
+
+<menuitem name="Censo" id="menu_censo"/>
+    <menuitem name="Registro" id="menu_registro" parent="menu_censo"/>
+        <menuitem name="Persona" id="menu_persona" action="action_persona" parent="menu_registro"/>
+        <menuitem name="Vivienda" id="menu_vivienda" action="action_vivienda" parent="menu_registro"/>
+        <menuitem name="socio_economico" id="menu_socio_economico" action="action_socio_economico" parent="menu_registro"/>
+        <menuitem name="unidad_productiva" id="menu_unidad_productiva" action="action_unidad_productiva" parent="menu_registro"/>
+        <menuitem name="tecnologia" id="menu_tecnologia" action="action_tecnologia" parent="menu_registro"/>
+        <menuitem name="ocupacion" id="menu_ocupacion" action="action_ocupacion" parent="menu_registro"/>
+        <menuitem name="grado_instruccion" id="menu_grado_instruccion" action="action_grado_instruccion" parent="menu_registro"/>
+    
+    <menuitem name="Configuracion" id="menu_configuracion" parent="menu_censo"/>
+        <menuitem name="DPT" id="menu_dpt" parent="menu_configuracion"/>
+            <menuitem name="Estado" id="menu_estado" action="action_estado" parent="menu_dpt"/>
+            <menuitem name="Municipio" id="menu_municipio" action="action_municipio" parent="menu_dpt"/>
+            <menuitem name="Parroquia" id="menu_parroquia" action="action_parroquia" parent="menu_dpt"/>
 
 </data>
 </openerp>

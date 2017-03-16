@@ -94,28 +94,25 @@ class socio_economico(models.Model):
     discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
     cantidad_hijos= fields.Selection([('O','Ninguno'),('I','Uno'),('II','Dos'),('III','Tres'),('IV','Cuatro'),('Mas','Mas de 4')], help='la persona indicara si tiene hijos')
     grupo_familiar = fields.Selection([('II','Dos'),('III','Tres'),('IV','Cuatro'),('V','Cinco'),('Ma','Mas 5')],string='Grupo Familiar', help='La persona podra espicificar su carga familiar')
-    ocupacion = fields.Char(string='¿Cual es su ocupacion?', help='la persona especifica la ocupacion')
     ingreso_mensual = fields.Float(string='Ingreso Mensual', help='La persona indicara su ingreso mensual')
-    grado_instruccion = fields.Char(string='¿cual es su grado de instruccion?', help='la persona indicara el grado de isntruccion')
     trabaja = fields.Boolean(string='¿Trabaja actualmente?', help='la persona indacara si posee trabajo')
     estado_civil =fields.Selection([('S','Soltero(a)'),('C','Casado(a)'),('Se','Separado(a)'),('Di','Divorciado(a)'),('Vi','Viudo(a)')],string='Estado civil', help='La persona podra espicificar el estado civil')
     persona_ids = fields.Many2one('persona',string='persona')
-
+    ocupacion_id = fields.Many2one('ocupacion',string='Ocupacion', help='Seleccione su Ocupacion ')
+    grado_instruccion_id= fields.Many2one('grado_instruccion',string='Grado instruccion', help='Seleccione su grado_instruccion ')
+    
 
 class unidad_productiva(models.Model):
     """la persona registra su inidad productiva"""
     _name = 'unidad_productiva'
     _rec_name = 'nombre'
-    nombre = fields.Char(string='Nombre de la industria tecnologica', help='la persona podra colocar el nombre de su industria')
+    nombre = fields.Char(string='Nombre de la unidad productiva', help='la persona podra colocar el nombre de su unidad productiva')
     rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
     correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
     facebook = fields.Char(string='Facebook', help='Ingrese su facebook con el nombre de su unidad profuctivad')
     twitter = fields.Char(string='Twitter', help='Ingrese su twitter con el nombre de su unidad profuctivad')
     tipo_industria = fields.Selection([('G','Grupal'),('F','Freelance'),('C','Cooperativa')], string='Tipo', help='la persona indicara el tipo de industria')
-    #tipo_tecnologia = fields.Char(string='¿Que tipo de tecnologia conoce?', help='la persona especifica el tipo de tegnologia ')
-    #tecnologia_usa = fields.Char(string='¿Que tipo de tecnologia usa?', help='la persona especifica el tipo de tegnologia que usa ')
-    #uso_diario = fields.Char(string='Cual usas a diario?', help='la persona especifica el uso diario ')
-    #domina = fields.Char(string='¿Cuales Dominas?', help='la persona especifica cual herramienta tecnologica domina ')
+    servicio = fields.Char(string='¿Que servicio presta ', help='Ingresa el servicio que presta la unidad productiva')
     personas_ids = fields.Many2many('persona', string='Persona')
     tecnologia_ids = fields.Many2many('tecnologia', string='Tecnologia')
 
@@ -126,4 +123,19 @@ class tecnologia(models.Model):
     tecnologia_domina = fields.Char(string='Tecnologia que domina', help='Ingresar la tecnologia que domina')
     uso_diario = fields.Char(string='cual es el uso diario ', help='Ingresar el uso diario de la tecnologia que domina ')
     unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
+
+class ocupacion(models.Model):
+    """Modelo que registra profesion de la persona"""
+    _name = 'ocupacion'
+    #_rec_name = 'tecnologia'
+    ocupacion_personal = fields.Char(string='Cual es su ocupacion', help='la persona podra colocar la ocupacion acual')
+
+class grado_instruccion(models.Model):
+    """Modelo que registra profesion de la persona"""
+    _name = 'grado_instruccion'
+    #_rec_name = 'tecnologia'
+    grado_instruccion_personal = fields.Char(string='Cual es su grado instruccion', help='la persona podra colocar el grado_instruccion acual')
+
+
+    
 
