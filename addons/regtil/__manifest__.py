@@ -30,7 +30,8 @@
         "init_xml" : [ ],
         "demo_xml" : [ ],
         "data" : ['views/registro_view.xml',
-         #'security/ir.model.access.csv'
+                    'security/res.groups.xml',
+                    'security/ir.model.access.csv'
          ],
         "installable": True
 }
