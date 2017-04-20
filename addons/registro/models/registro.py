@@ -45,23 +45,41 @@ class Persona(models.Model):
     unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva',string='Unidad productiva')
 
 class TipoVinculacionTIL(models.Model):
+    """Tipo de Vinculación con las Tecnologías Libres"""
     _name = 'regtil.tipo_vinculacion_til'
     name = fields.Char('Nombre')
-    description = fields.Char('Descripción')
+    description = fields.Text('Descripción')
 
 class Vivienda(models.Model):
     """Registro vivienda clase persona"""
     _name = 'regtil.vivienda'
     _rec_name = 'fecha_registro'
-    fecha_registro = fields.Date(string='Fecha de Registro', help='Selecciones su fecha de registro. Seleccionando la fecha en el asistente o escribiendola en el formato 01/01/1999')
-    condicion = fields.Selection([('E','Estable',),('I','Inestable'),('A','Altoriesgo'),('V','Vulnerable')], string='Condicion', help='Seleccione la condicion de la vivienda ')
-    tenencia = fields.Selection([('P','Propia',),('A','Alquilada'),('C','Compartida'),('I','Invadida')], string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
-    tipo = fields.Selection([('Q','Quinta',),('CA','Casa'),('A','Apartamento'),('R','Rancho'),('AN','Anexo')], string='Tipo', help='seleccione el tipo de vivienda actual')
-    television = fields.Boolean(string='Television', help='la persona tildara si posee television')
-    computadora = fields.Boolean(string='Computadora', help='la persona tildara si posee computadora')
-    internet = fields.Boolean(string='Internet', help='la persona tildara si posee internet')
+    fecha_registro = fields.Date(string='Fecha de Registro', help='Selecciones su fecha de registro', default=fields.Datetime.now)
+    tipo_id = fields.Many2one('regtil.vivienda.tipo', string='Tipo', help='seleccione el tipo de vivienda actual')
+    tenencia_id = fields.Many2one('regtil.vivienda.tenencia', string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
+    condicion_id = fields.Many2one('regtil.vivienda.condicion', string='Condicion', help='Seleccione la condicion de la vivienda ')
+    tiene_television = fields.Boolean(string='¿Tiene Television?', help='la persona tildará si posee television')
+    tiene_computadora = fields.Boolean(string='¿Tiene Computadora?', help='la persona tildará si posee computadora')
+    tiene_internet = fields.Boolean(string='¿Tiene Internet=', help='la persona tildará si posee internet')
     persona_id = fields.Many2one('persona',string='Persona')
 
+class ViviendaTipo(models.Model):
+    """Condición de la vivienda"""
+    _name="regtil.vivienda.tipo"
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
+
+class ViviendaTenencia(models.Model):
+    """Condición de la vivienda"""
+    _name="regtil.vivienda.tenencia"
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
+
+class ViviendaCondicion(models.Model):
+    """Condición de la vivienda"""
+    _name="regtil.vivienda.condicion"
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
 
 class SocioEconomico(models.Model):
     """registra el nivel socio ecnonomico de la persona"""
