@@ -59,7 +59,7 @@ class Vivienda(models.Model):
     tiene_television = fields.Boolean(string='¿Tiene Television?', help='la persona tildará si posee television')
     tiene_computadora = fields.Boolean(string='¿Tiene Computadora?', help='la persona tildará si posee computadora')
     tiene_internet = fields.Boolean(string='¿Tiene Internet=', help='la persona tildará si posee internet')
-    persona_id = fields.Many2one('persona',string='Persona')
+    persona_id = fields.Many2one('regtil.persona',string='Persona')
 
 class ViviendaTipo(models.Model):
     """Condición de la vivienda"""
@@ -92,7 +92,7 @@ class SocioEconomico(models.Model):
     ingreso_mensual = fields.Float(string='Ingreso Mensual', help='Indique su ingreso mensual')
     ocupacion_id = fields.Many2one('regtil.socio_economico.ocupacion',string='Ocupacion', help='Seleccione su Ocupacion ')
     grado_instruccion_id= fields.Many2one('regtil.socio_economico.grado_instruccion',string='Grado instruccion', help='Seleccione su grado_instruccion')
-    persona_id = fields.Many2one('persona',string='Persona')
+    persona_id = fields.Many2one('regtil.persona',string='Persona')
     
 class SocioEconomicoOcupacion(models.Model):
     """Modelo que registra profesion de la persona"""
@@ -119,7 +119,7 @@ class UnidadProductiva(models.Model):
     facebook = fields.Char(string='Facebook', help='Ingrese su cuenta de facebook')
     twitter = fields.Char(string='Twitter', help='Ingrese su cuenta de twitter')
     actividad_ids = fields.Many2many('regtil.unidad_productiva.actividad', string='Actividades', help='Ingresa las actividades a las que se dedica su Comunidad/UP')
-    personas_ids = fields.Many2many('persona', string='Persona')
+    personas_ids = fields.Many2many('regtil.persona', string='Persona')
 
 class UnidadProductivaFiguraJuridica(models.Model):
     """Lista de figuradas jurídicas según el código de comercio venezolano y las leyes del poder popular"""
