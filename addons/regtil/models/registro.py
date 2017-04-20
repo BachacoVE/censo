@@ -35,7 +35,7 @@ class Persona(models.Model):
     direccion = fields.Text('Dirección', help='Ingrese su direccion de habitación')
     telefono = fields.Char(string='Télefono', help='Ingrese su télefono en el formato 04149355744')
     email = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
-    vinculacion_til_id = fields.Many2one('regtil.tipo_vinculacion_til', string ='Vinculacion TIL' , help='Selección el Tipo de Vinculacion con las TIL')
+    vinculacion_til_id = fields.Many2one('regtil.persona.tipo_vinculacion_til', string ='Vinculacion TIL' , help='Selección el Tipo de Vinculacion con las TIL')
     state_id = fields.Many2one('res.country.state', string='Estado')
     municipality_id = fields.Many2one('res.country.state.municipality', string='Municipio')
     parish_id = fields.Many2one('res.country.state.municipality.parish', string='Parroquia')
