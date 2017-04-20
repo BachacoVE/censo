@@ -41,7 +41,7 @@ class Persona(models.Model):
     municipality_id = fields.Many2one('res.country.state.municipality', string='Municipio')
     parish_id = fields.Many2one('res.country.state.municipality.parish', string='Parroquia')
     vivienda_ids = fields.One2many('regtil.vivienda', 'persona_id',string='Información de Vivienda')
-    socio_economico_ids = fields.One2many('regtil.socio_economico','persona_ids',string='socio_economico')
+    socio_economico_ids = fields.One2many('regtil.socio_economico','persona_id',string='Informacón Socio-Económica')
     unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva',string='Unidad productiva')
 
 class TipoVinculacionTIL(models.Model):
@@ -49,6 +49,7 @@ class TipoVinculacionTIL(models.Model):
     _name = 'regtil.tipo_vinculacion_til'
     name = fields.Char('Nombre')
     description = fields.Text('Descripción')
+
 
 class Vivienda(models.Model):
     """Registro vivienda clase persona"""
@@ -85,16 +86,28 @@ class SocioEconomico(models.Model):
     """registra el nivel socio ecnonomico de la persona"""
     _name = 'regtil.socio_economico'
     _rec_name = 'ingreso_mensual'
-    discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
-    cantidad_hijos= fields.Selection([('O','Ninguno'),('I','Uno'),('II','Dos'),('III','Tres'),('IV','Cuatro'),('Mas','Mas de 4')], help='la persona indicara si tiene hijos')
-    grupo_familiar = fields.Selection([('II','Dos'),('III','Tres'),('IV','Cuatro'),('V','Cinco'),('Ma','Mas 5')],string='Grupo Familiar', help='La persona podra espicificar su carga familiar')
-    ingreso_mensual = fields.Float(string='Ingreso Mensual', help='La persona indicara su ingreso mensual')
-    trabaja = fields.Boolean(string='¿Trabaja actualmente?', help='la persona indacara si posee trabajo')
+    #Cambiar discapacidad a modelo m2m
     estado_civil =fields.Selection([('S','Soltero(a)'),('C','Casado(a)'),('Se','Separado(a)'),('Di','Divorciado(a)'),('Vi','Viudo(a)')],string='Estado civil', help='La persona podra espicificar el estado civil')
-    persona_ids = fields.Many2one('persona',string='persona')
-    ocupacion_id = fields.Many2one('ocupacion',string='Ocupacion', help='Seleccione su Ocupacion ')
-    grado_instruccion_id= fields.Many2one('grado_instruccion',string='Grado instruccion', help='Seleccione su grado_instruccion ')
+    discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
+    cantidad_hijos = fields.Integer(string='Cant. Hijos', help='Indique cuantos hijos tiene')
+    grupo_familiar = fields.Integer(string='Cant. Grupo Familiar', help='Cuantas personas componen su grupo familiar')
+    trabaja = fields.Boolean(string='¿Trabaja actualmente?', help='la persona indacara si posee trabajo')
+    ingreso_mensual = fields.Float(string='Ingreso Mensual', help='Indique su ingreso mensual')
+    ocupacion_id = fields.Many2one('regtil.socio_economico.ocupacion',string='Ocupacion', help='Seleccione su Ocupacion ')
+    grado_instruccion_id= fields.Many2one('regtil.socio_economico.grado_instruccion',string='Grado instruccion', help='Seleccione su grado_instruccion')
+    persona_id = fields.Many2one('persona',string='Persona')
     
+class SocioEconomicoOcupacion(models.Model):
+    """Modelo que registra profesion de la persona"""
+    _name = 'regtil.socio_economico.ocupacion'
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
+
+class SocioEconomicoGradoInstruccion(models.Model):
+    """Modelo que registra profesion de la persona"""
+    _name = 'regtil.socio_economico.grado_instruccion'
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
 
 class UnidadProductiva(models.Model):
     """la persona registra su inidad productiva"""
@@ -117,15 +130,3 @@ class Tecnologia(models.Model):
     tecnologia_domina = fields.Char(string='Tecnologia que domina', help='Ingresar la tecnologia que domina')
     uso_diario = fields.Char(string='cual es el uso diario ', help='Ingresar el uso diario de la tecnologia que domina ')
     unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
-
-class Ocupacion(models.Model):
-    """Modelo que registra profesion de la persona"""
-    _name = 'regtil.ocupacion'
-    #_rec_name = 'tecnologia'
-    ocupacion_personal = fields.Char(string='Cual es su ocupacion', help='la persona podra colocar la ocupacion acual')
-
-class GradoInstruccion(models.Model):
-    """Modelo que registra profesion de la persona"""
-    _name = 'regtil.grado_instruccion'
-    #_rec_name = 'tecnologia'
-    grado_instruccion_personal = fields.Char(string='Cual es su grado instruccion', help='la persona podra colocar el grado_instruccion acual')
