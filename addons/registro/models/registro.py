@@ -53,7 +53,6 @@ class Vivienda(models.Model):
     """Registro vivienda clase persona"""
     _name = 'regtil.vivienda'
     _rec_name = 'fecha_registro'
-    fecha_registro = fields.Date(string='Fecha de Registro', help='Selecciones su fecha de registro', default=fields.Datetime.now)
     tipo_id = fields.Many2one('regtil.vivienda.tipo', string='Tipo', help='seleccione el tipo de vivienda actual')
     tenencia_id = fields.Many2one('regtil.vivienda.tenencia', string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
     condicion_id = fields.Many2one('regtil.vivienda.condicion', string='Condicion', help='Seleccione la condicion de la vivienda ')

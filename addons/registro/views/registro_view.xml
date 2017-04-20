@@ -241,12 +241,12 @@
         <field name="arch" type="xml">
             <form string="socio_economico">
             <group col="4" colspan="2">
+                <field name="estado_civil" select="0"/>
                 <field name="discapacidad" select="0"/>
                 <field name="cantidad_hijos" select="1"/>
                 <field name="grupo_familiar" select="0"/>
-                <field name="ingreso_mensual" select="0"/>
                 <field name="trabaja" select="0"/>
-                <field name="estado_civil" select="0"/>
+                <field name="ingreso_mensual" select="0"/>
                 <field name="ocupacion_id" select="0"/>
                 <field name="grado_instruccion_id" select="0"/>
 
@@ -260,12 +260,12 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="socio_economico">
+                <field name="estado_civil"/>
                 <field name="discapacidad"/>
                 <field name="cantidad_hijos"/>
                 <field name="grupo_familiar"/>
-                <field name="ingreso_mensual"/>
                 <field name="trabaja"/>
-                <field name="estado_civil"/>
+                <field name="ingreso_mensual"/>
                 <field name="ocupacion_id"/>
                 <field name="grado_instruccion_id"/>
 
@@ -279,6 +279,67 @@
         <field name="view_mode">tree,form</field>
     </record>
     
+<record model="ir.ui.view" id="view_socio_economico_ocupacion_form">
+        <field name="name">regtil.socio_economico.ocupacion.form</field>
+        <field name="model">regtil.socio_economico.ocupacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.socio_economico.ocupacion">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_socio_economico_ocupacion_tree">
+        <field name="name">regtil.socio_economico.ocupacion.tree</field>
+        <field name="model">regtil.socio_economico.ocupacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.socio_economico.ocupacion">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_socio_economico_ocupacion">
+        <field name="name">Ocupación</field>
+        <field name="res_model">regtil.socio_economico.ocupacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<record model="ir.ui.view" id="view_socio_economico_grado_instruccion_form">
+        <field name="name">regtil.socio_economico.grado_instruccion.form</field>
+        <field name="model">regtil.socio_economico.grado_instruccion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.socio_economico.grado_instruccion">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_socio_economico_grado_instruccion_tree">
+        <field name="name">regtil.socio_economico.grado_instruccion.tree</field>
+        <field name="model">regtil.socio_economico.grado_instruccion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.socio_economico.grado_instruccion">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_socio_economico_grado_instruccion">
+        <field name="name">Grado de Instrucción</field>
+        <field name="res_model">regtil.socio_economico.grado_instruccion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
         
     <record model="ir.ui.view" id="view_unidad_productiva_form">
