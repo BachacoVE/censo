@@ -52,7 +52,7 @@ class TipoVinculacionTIL(models.Model):
 class Vivienda(models.Model):
     """Registro vivienda clase persona"""
     _name = 'regtil.vivienda'
-    _rec_name = 'fecha_registro'
+    _rec_name = 'persona_id'
     tipo_id = fields.Many2one('regtil.vivienda.tipo', string='Tipo', help='seleccione el tipo de vivienda actual')
     tenencia_id = fields.Many2one('regtil.vivienda.tenencia', string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
     condicion_id = fields.Many2one('regtil.vivienda.condicion', string='Condicion', help='Seleccione la condicion de la vivienda ')
@@ -82,7 +82,7 @@ class ViviendaCondicion(models.Model):
 class SocioEconomico(models.Model):
     """registra el nivel socio ecnonomico de la persona"""
     _name = 'regtil.socio_economico'
-    _rec_name = 'ingreso_mensual'
+    _rec_name = 'persona_id'
     #Cambiar discapacidad a modelo m2m
     estado_civil =fields.Selection([('S','Soltero(a)'),('C','Casado(a)'),('Se','Separado(a)'),('Di','Divorciado(a)'),('Vi','Viudo(a)')],string='Estado civil', help='La persona podra espicificar el estado civil')
     discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
