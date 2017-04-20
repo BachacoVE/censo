@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
-<data>
+<odoo>
 
     <record model="ir.ui.view" id="view_persona_form">
         <field name="name">regtil.persona.form</field>
@@ -473,8 +472,7 @@
         <menuitem name="Figura Jurídica" id="menu_figura_juridica" action="action_unidad_productiva_figura_juridica" parent="menu_configuracion"/>
         <menuitem name="Actividad" id="menu_actividad" action="action_unidad_productiva_actividad" parent="menu_configuracion"/>
 
-</data>
-</openerp>
+</odoo>
 
 
 
