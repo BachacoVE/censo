@@ -40,7 +40,7 @@ class Persona(models.Model):
     state_id = fields.Many2one('res.country.state', string='Estado')
     municipality_id = fields.Many2one('res.country.state.municipality', string='Municipio')
     parish_id = fields.Many2one('res.country.state.municipality.parish', string='Parroquia')
-    vivienda_ids = fields.Many2many('regtil.vivienda',string='Vivienda')
+    vivienda_ids = fields.One2many('regtil.vivienda', 'persona_id',string='Información de Vivienda')
     socio_economico_ids = fields.One2many('regtil.socio_economico','persona_ids',string='socio_economico')
     unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva',string='Unidad productiva')
 
@@ -60,7 +60,7 @@ class Vivienda(models.Model):
     television = fields.Boolean(string='Television', help='la persona tildara si posee television')
     computadora = fields.Boolean(string='Computadora', help='la persona tildara si posee computadora')
     internet = fields.Boolean(string='Internet', help='la persona tildara si posee internet')
-    persona_ids = fields.Many2many('persona',string='Persona')
+    persona_id = fields.Many2one('persona',string='Persona')
 
 
 class SocioEconomico(models.Model):
