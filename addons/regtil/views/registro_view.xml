@@ -457,8 +457,8 @@
     <menuitem name="Registro" id="menu_registro" parent="menu_regtil"/>
         <menuitem name="Persona" id="menu_persona" action="action_persona" parent="menu_registro"/>
         <menuitem name="Vivienda" id="menu_vivienda" action="action_regtil_vivienda" parent="menu_registro"/>
-        <menuitem name="socio_economico" id="menu_socio_economico" action="action_socio_economico" parent="menu_registro"/>
-        <menuitem name="unidad_productiva" id="menu_unidad_productiva" action="action_regtil_unidad_productiva" parent="menu_registro"/>
+        <menuitem name="Socio Economico" id="menu_socio_economico" action="action_socio_economico" parent="menu_registro"/>
+        <menuitem name="UPs ó Comunidades" id="menu_unidad_productiva" action="action_regtil_unidad_productiva" parent="menu_registro"/>
     
     <menuitem name="Configuracion" id="menu_configuracion" parent="menu_regtil"/>
         <menuitem name="DPT" id="menu_dpt" parent="menu_configuracion"/>

@@ -54,11 +54,11 @@ class Vivienda(models.Model):
     _name = 'regtil.vivienda'
     _rec_name = 'persona_id'
     tipo_id = fields.Many2one('regtil.vivienda.tipo', string='Tipo', help='seleccione el tipo de vivienda actual')
-    tenencia_id = fields.Many2one('regtil.vivienda.tenencia', string='Tenencia', help='Seleccione el tipo de tenencia de su viviend')
+    tenencia_id = fields.Many2one('regtil.vivienda.tenencia', string='Tenencia', help='Seleccione el tipo de tenencia de su vivienda')
     condicion_id = fields.Many2one('regtil.vivienda.condicion', string='Condicion', help='Seleccione la condicion de la vivienda ')
     tiene_television = fields.Boolean(string='¿Tiene Television?', help='la persona tildará si posee television')
     tiene_computadora = fields.Boolean(string='¿Tiene Computadora?', help='la persona tildará si posee computadora')
-    tiene_internet = fields.Boolean(string='¿Tiene Internet=', help='la persona tildará si posee internet')
+    tiene_internet = fields.Boolean(string='¿Tiene Internet?', help='la persona tildará si posee internet')
     persona_id = fields.Many2one('regtil.persona',string='Persona')
 
 class ViviendaTipo(models.Model):
@@ -85,10 +85,10 @@ class SocioEconomico(models.Model):
     _rec_name = 'persona_id'
     #Cambiar discapacidad a modelo m2m
     estado_civil =fields.Selection([('S','Soltero(a)'),('C','Casado(a)'),('Se','Separado(a)'),('Di','Divorciado(a)'),('Vi','Viudo(a)')],string='Estado civil', help='La persona podra espicificar el estado civil')
-    discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
+    discapacidad = fields.Boolean(string='Discapacidad', help='Marque si la persona tiene alguna discapacidad')
     cantidad_hijos = fields.Integer(string='Cant. Hijos', help='Indique cuantos hijos tiene')
     grupo_familiar = fields.Integer(string='Cant. Grupo Familiar', help='Cuantas personas componen su grupo familiar')
-    trabaja = fields.Boolean(string='¿Trabaja actualmente?', help='la persona indacara si posee trabajo')
+    trabaja = fields.Boolean(string='Trabaja', help='Marque si la persona trabaja actualmente')
     ingreso_mensual = fields.Float(string='Ingreso Mensual', help='Indique su ingreso mensual')
     ocupacion_id = fields.Many2one('regtil.socio_economico.ocupacion',string='Ocupacion', help='Seleccione su Ocupacion ')
     grado_instruccion_id= fields.Many2one('regtil.socio_economico.grado_instruccion',string='Grado instruccion', help='Seleccione su grado_instruccion')
