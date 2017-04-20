@@ -387,8 +387,8 @@
 
 
 <record model="ir.ui.view" id="view_unidad_productiva_figura_juridica_form">
-        <field name="name">regtil.unidad_productiva.figura_juridica'.form</field>
-        <field name="model">regtil.unidad_productiva.figura_juridica'</field>
+        <field name="name">regtil.unidad_productiva.figura_juridica.form</field>
+        <field name="model">regtil.unidad_productiva.figura_juridica</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="regtil.unidad_productiva.figura_juridica'">
@@ -400,8 +400,8 @@
         </field>
     </record>
     <record model="ir.ui.view" id="view_unidad_productiva_figura_juridica_tree">
-        <field name="name">regtil.unidad_productiva.figura_juridica'.tree</field>
-        <field name="model">regtil.unidad_productiva.figura_juridica'</field>
+        <field name="name">regtil.unidad_productiva.figura_juridica.tree</field>
+        <field name="model">regtil.unidad_productiva.figura_juridica</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="regtil.unidad_productiva.figura_juridica'">
@@ -412,7 +412,7 @@
     </record>
     <record model="ir.actions.act_window" id="action_unidad_productiva_figura_juridica">
         <field name="name">Figura Jurídica</field>
-        <field name="res_model">regtil.unidad_productiva.figura_juridica'</field>
+        <field name="res_model">regtil.unidad_productiva.figura_juridica</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
@@ -420,7 +420,7 @@
 
 <record model="ir.ui.view" id="view_unidad_productiva_actividad_form">
         <field name="name">regtil.unidad_productiva.actividad'.form</field>
-        <field name="model">regtil.unidad_productiva.actividad'</field>
+        <field name="model">regtil.unidad_productiva.actividad</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="regtil.unidad_productiva.actividad'">
@@ -432,8 +432,8 @@
         </field>
     </record>
     <record model="ir.ui.view" id="view_unidad_productiva_actividad_tree">
-        <field name="name">regtil.unidad_productiva.actividad'.tree</field>
-        <field name="model">regtil.unidad_productiva.actividad'</field>
+        <field name="name">regtil.unidad_productiva.actividad.tree</field>
+        <field name="model">regtil.unidad_productiva.actividad</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="regtil.unidad_productiva.actividad'">
@@ -444,7 +444,7 @@
     </record>
     <record model="ir.actions.act_window" id="action_unidad_productiva_actividad">
         <field name="name">Actividad</field>
-        <field name="res_model">regtil.unidad_productiva.actividad'</field>
+        <field name="res_model">regtil.unidad_productiva.actividad</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
