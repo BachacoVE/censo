@@ -44,9 +44,9 @@
                 <field name="primer_apellido"/>
                 <field name="sexo"/>
                 <field name="telefono"/>
-                <field name="correo"/>
-                <field name="vinculacion_tecnologica"/>
-                <field name="estado_id"/>
+                <field name="email"/>
+                <field name="vinculacion_til_id"/>
+                <field name="state_id"/>
 
             </tree>
         </field>
@@ -99,7 +99,7 @@
         <field name="arch" type="xml">
             <form string="regtil.vivienda">
             <group col="4" colspan="2">
-                <field name="fecha_registro" select="1"/>
+                <field name="create_date" readonly="True" string="Fecha Registro" select="1"/>
                 <field name="tipo_id" select="2"/>
                 <field name="tenencia_id" select="0"/>
                 <field name="condicion_id" select="0"/>
@@ -120,7 +120,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="regtil.vivienda">
-                <field name="fecha_registro"/>
+                <field name="create_date"/>
                 <field name="tipo_id"/>
                 <field name="tenencia_id"/>
                 <field name="condicion_id"/>
@@ -240,6 +240,7 @@
         <field name="arch" type="xml">
             <form string="socio_economico">
             <group col="4" colspan="2">
+                <field name="create_date" readonly="True" string="Fecha Registro" select="1"/>
                 <field name="estado_civil" select="0"/>
                 <field name="discapacidad" select="0"/>
                 <field name="cantidad_hijos" select="1"/>
@@ -259,6 +260,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="socio_economico">
+                <field name="create_date"/>
                 <field name="estado_civil"/>
                 <field name="discapacidad"/>
                 <field name="cantidad_hijos"/>
@@ -371,10 +373,9 @@
             <tree string="regtil.unidad_productiva">
                 <field name="name"/>
                 <field name="rif"/>
-                <field name="correo"/>
+                <field name="email"/>
                 <field name="facebook"/>
                 <field name="twitter"/>
-                 <field name="servicio"/>
             </tree>
         </field>
     </record>
