@@ -49,7 +49,7 @@ class TipoVinculacionTIL(models.Model):
     name = fields.Char('Nombre')
     description = fields.Char('Descripción')
 
-class vivienda(models.Model):
+class Vivienda(models.Model):
     """Registro vivienda clase persona"""
     _name = 'regtil.vivienda'
     _rec_name = 'fecha_registro'
@@ -63,7 +63,7 @@ class vivienda(models.Model):
     persona_ids = fields.Many2many('persona',string='Persona')
 
 
-class socio_economico(models.Model):
+class SocioEconomico(models.Model):
     """registra el nivel socio ecnonomico de la persona"""
     _name = 'regtil.socio_economico'
     _rec_name = 'ingreso_mensual'
@@ -78,7 +78,7 @@ class socio_economico(models.Model):
     grado_instruccion_id= fields.Many2one('grado_instruccion',string='Grado instruccion', help='Seleccione su grado_instruccion ')
     
 
-class unidad_productiva(models.Model):
+class UnidadProductiva(models.Model):
     """la persona registra su inidad productiva"""
     _name = 'regtil.unidad_productiva'
     _rec_name = 'nombre'
@@ -92,7 +92,7 @@ class unidad_productiva(models.Model):
     personas_ids = fields.Many2many('persona', string='Persona')
     tecnologia_ids = fields.Many2many('tecnologia', string='Tecnologia')
 
-class tecnologia(models.Model):
+class Tecnologia(models.Model):
     """Modelo que registra la tecnologia"""
     _name = 'regtil.tecnologia'
     #_rec_name = 'tecnologia'
@@ -100,18 +100,14 @@ class tecnologia(models.Model):
     uso_diario = fields.Char(string='cual es el uso diario ', help='Ingresar el uso diario de la tecnologia que domina ')
     unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
 
-class ocupacion(models.Model):
+class Ocupacion(models.Model):
     """Modelo que registra profesion de la persona"""
     _name = 'regtil.ocupacion'
     #_rec_name = 'tecnologia'
     ocupacion_personal = fields.Char(string='Cual es su ocupacion', help='la persona podra colocar la ocupacion acual')
 
-class grado_instruccion(models.Model):
+class GradoInstruccion(models.Model):
     """Modelo que registra profesion de la persona"""
     _name = 'regtil.grado_instruccion'
     #_rec_name = 'tecnologia'
     grado_instruccion_personal = fields.Char(string='Cual es su grado instruccion', help='la persona podra colocar el grado_instruccion acual')
-
-
-    
-
