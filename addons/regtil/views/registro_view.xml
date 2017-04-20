@@ -92,7 +92,7 @@
         
 
         
-    <record model="ir.ui.view" id="view_regtil.vivienda_form">
+    <record model="ir.ui.view" id="view_regtil_vivienda_form">
         <field name="name">regtil.vivienda.form</field>
         <field name="model">regtil.vivienda</field>
         <field name="type">form</field>
@@ -114,7 +114,7 @@
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="view_regtil.vivienda_tree">
+    <record model="ir.ui.view" id="view_regtil_vivienda_tree">
         <field name="name">regtil.vivienda.tree</field>
         <field name="model">regtil.vivienda</field>
         <field name="type">tree</field>
@@ -341,7 +341,7 @@
     </record>
 
         
-    <record model="ir.ui.view" id="view_regtil.unidad_productiva_form">
+    <record model="ir.ui.view" id="view_regtil_unidad_productiva_form">
         <field name="name">regtil.unidad_productiva.form</field>
         <field name="model">regtil.unidad_productiva</field>
         <field name="type">form</field>
@@ -363,7 +363,7 @@
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="view_regtil.unidad_productiva_tree">
+    <record model="ir.ui.view" id="view_regtil_unidad_productiva_tree">
         <field name="name">regtil.unidad_productiva.tree</field>
         <field name="model">regtil.unidad_productiva</field>
         <field name="type">tree</field>
@@ -378,7 +378,7 @@
             </tree>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_regtil.unidad_productiva">
+    <record model="ir.actions.act_window" id="action_regtil_unidad_productiva">
         <field name="name">Unidad Productiva o Comunidad</field>
         <field name="res_model">regtil.unidad_productiva</field>
         <field name="view_type">form</field>
