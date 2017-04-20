@@ -60,7 +60,7 @@
     </record>
     
 
-<record model="ir.ui.view" id="view_persona_form">
+<record model="ir.ui.view" id="view_vinculaciontil_form">
         <field name="name">regtil.persona.tipo_vinculacion_til.form</field>
         <field name="model">regtil.persona.tipo_vinculacion_til</field>
         <field name="type">form</field>
@@ -73,7 +73,7 @@
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="view_persona_tree">
+    <record model="ir.ui.view" id="view_vinculaciontil_tree">
         <field name="name">regtil.persona.tipo_vinculacion_til.tree</field>
         <field name="model">regtil.persona.tipo_vinculacion_til</field>
         <field name="type">tree</field>
@@ -84,29 +84,29 @@
             </tree>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_persona">
-        <field name="name">regtil.persona.tipo_vinculacion_til</field>
-        <field name="res_model">regtil.persona</field>
+    <record model="ir.actions.act_window" id="action_vinculaciontil">
+        <field name="name">Vinculacion TIL</field>
+        <field name="res_model">regtil.persona.tipo_vinculacion_til</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
         
 
         
-    <record model="ir.ui.view" id="view_vivienda_form">
-        <field name="name">vivienda.form</field>
-        <field name="model">vivienda</field>
+    <record model="ir.ui.view" id="view_regtil.vivienda_form">
+        <field name="name">regtil.vivienda.form</field>
+        <field name="model">regtil.vivienda</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="vivienda">
+            <form string="regtil.vivienda">
             <group col="4" colspan="2">
                 <field name="fecha_registro" select="1"/>
-                <field name="condicion" select="2"/>
-                <field name="tenencia" select="0"/>
-                <field name="tipo" select="0"/>
-                <field name="television" select="0"/>
-                <field name="computadora" select="0"/>
-                <field name="internet" select="0"/>
+                <field name="tipo_id" select="2"/>
+                <field name="tenencia_id" select="0"/>
+                <field name="condicion_id" select="0"/>
+                <field name="tiene_television" select="0"/>
+                <field name="tiene_computadora" select="0"/>
+                <field name="tiene_internet" select="0"/>
                 
                 <!--separator string='Persona' colspan="4"/>
                 <field name="persona_ids" colspan="4" nolabel="1" select="0"/ -->
@@ -115,29 +115,123 @@
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="view_vivienda_tree">
-        <field name="name">vivienda.tree</field>
-        <field name="model">vivienda</field>
+    <record model="ir.ui.view" id="view_regtil.vivienda_tree">
+        <field name="name">regtil.vivienda.tree</field>
+        <field name="model">regtil.vivienda</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="vivienda">
+            <tree string="regtil.vivienda">
                 <field name="fecha_registro"/>
-                <field name="condicion"/>
-                <field name="tenencia"/>
-                <field name="tipo"/>
-                <field name="television"/>
-                <field name="computadora"/>
-                <field name="internet"/>
+                <field name="tipo_id"/>
+                <field name="tenencia_id"/>
+                <field name="condicion_id"/>
+                <field name="tiene_television"/>
+                <field name="tiene_computadora"/>
+                <field name="tiene_internet"/>
             </tree>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_vivienda">
-        <field name="name">vivienda</field>
-        <field name="res_model">vivienda</field>
+    <record model="ir.actions.act_window" id="action_regtil.vivienda">
+        <field name="name">regtil.vivienda</field>
+        <field name="res_model">regtil.vivienda</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     
+
+
+<record model="ir.ui.view" id="view_vivienda_tipo_form">
+        <field name="name">regtil.vivienda.tipo.form</field>
+        <field name="model">regtil.vivienda.tipo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda.tipo">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vivienda_tipo_tree">
+        <field name="name">regtil.vivienda.tipo.tree</field>
+        <field name="model">regtil.vivienda.tipo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda.tipo">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vivienda_tipo">
+        <field name="name">Tipo Vivienda</field>
+        <field name="res_model">regtil.vivienda.tipo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<record model="ir.ui.view" id="view_vivienda_tenencia_form">
+        <field name="name">regtil.vivienda.tenencia.form</field>
+        <field name="model">regtil.vivienda.tenencia</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda.tenencia">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vivienda_tenencia_tree">
+        <field name="name">regtil.vivienda.tenencia.tree</field>
+        <field name="model">regtil.vivienda.tenencia</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda.tenencia">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vivienda_tenencia">
+        <field name="name">Tenencia</field>
+        <field name="res_model">regtil.vivienda.tenencia</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<record model="ir.ui.view" id="view_vivienda_condicion_form">
+        <field name="name">regtil.vivienda.condicion.form</field>
+        <field name="model">regtil.vivienda.condicion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda.condicion">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vivienda_condicion_tree">
+        <field name="name">regtil.vivienda.condicion.tree</field>
+        <field name="model">regtil.vivienda.condicion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda.condicion">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vivienda_condicion">
+        <field name="name">Condición</field>
+        <field name="res_model">regtil.vivienda.condicion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
         
     <record model="ir.ui.view" id="view_socio_economico_form">
