@@ -112,7 +112,7 @@ class UnidadProductiva(models.Model):
     name = fields.Char(string='Nombre', help='Nombre de la unidad productiva o Comunidad')
     tipo = fields.Selection([('C','Comunidad'),('UP','Unidad Productiva'),('CyUP','Ambas')], string='Tipo', help='Tipo')
     figura_juridica_id = fields.Many2one('regtil.unidad_productiva.figura_juridica',string='Figura Jurídica', help="Indique la figura jurídica") 
-    rif = fields.Integer(string='RIF', help='Ingrese su RIF en el formato J123456789')
+    rif = fields.Char(string='RIF', help='Ingrese su RIF en el formato J123456789')
     email = fields.Char(string='Correo Electrónico', help='Ingrese su correo electrónico en el formato ejemplo@ejemplo.com')
     telefono = fields.Char(string='Télefono', help='Ingrese el télefono en el formato 04149355744')
     website = fields.Char(string='Página Web', help='Ingrese su dirección web en el fomato http://www.ejemplo.com.ve')
