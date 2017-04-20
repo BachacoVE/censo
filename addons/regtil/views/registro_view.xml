@@ -453,17 +453,17 @@
 
     
 <menuitem name="Registro TIL" id="menu_regtil"/>
-    <menuitem name="Registro" id="menu_registro" parent="menu_censo"/>
+    <menuitem name="Registro" id="menu_registro" parent="menu_regtil"/>
         <menuitem name="Persona" id="menu_persona" action="action_persona" parent="menu_registro"/>
         <menuitem name="Vivienda" id="menu_vivienda" action="action_regtil_vivienda" parent="menu_registro"/>
         <menuitem name="socio_economico" id="menu_socio_economico" action="action_socio_economico" parent="menu_registro"/>
-        <menuitem name="unidad_productiva" id="menu_unidad_productiva" action="action_unidad_productiva" parent="menu_registro"/>
+        <menuitem name="unidad_productiva" id="menu_unidad_productiva" action="action_regtil_unidad_productiva" parent="menu_registro"/>
     
     <menuitem name="Configuracion" id="menu_configuracion" parent="menu_regtil"/>
         <menuitem name="DPT" id="menu_dpt" parent="menu_configuracion"/>
-            <!--menuitem name="Estado" id="menu_estado" action="action_estado" parent="menu_dpt"/-->
-            <menuitem name="Municipio" id="menu_municipio" action="l10n_ve_dpt.action_municipio" parent="menu_dpt"/>
-            <menuitem name="Parroquia" id="menu_parroquia" action="l10n_ve_dpt.action_parroquia" parent="menu_dpt"/>
+            <menuitem name="Estado" id="menu_estado" action="l10n_ve_dpt.action_state" parent="menu_dpt"/>
+            <menuitem name="Municipio" id="menu_municipio" action="l10n_ve_dpt.action_municipality" parent="menu_dpt"/>
+            <menuitem name="Parroquia" id="menu_parroquia" action="l10n_ve_dpt.action_parish" parent="menu_dpt"/>
         <menuitem name="Vinculacion TIL" id="menu_parroquia" action="action_vinculaciontil" parent="menu_configuracion"/>
         <menuitem name="Tenencia" id="menu_tenencia" action="action_vivienda_tenencia" parent="menu_configuracion"/>
         <menuitem name="Condición" id="menu_condicion" action="action_vivienda_condicion" parent="menu_configuracion"/>
