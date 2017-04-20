@@ -51,7 +51,7 @@ class TipoVinculacionTIL(models.Model):
 
 class vivienda(models.Model):
     """Registro vivienda clase persona"""
-    _name = 'vivienda'
+    _name = 'regtil.vivienda'
     _rec_name = 'fecha_registro'
     fecha_registro = fields.Date(string='Fecha de Registro', help='Selecciones su fecha de registro. Seleccionando la fecha en el asistente o escribiendola en el formato 01/01/1999')
     condicion = fields.Selection([('E','Estable',),('I','Inestable'),('A','Altoriesgo'),('V','Vulnerable')], string='Condicion', help='Seleccione la condicion de la vivienda ')
@@ -66,7 +66,7 @@ class vivienda(models.Model):
 
 class socio_economico(models.Model):
     """registra el nivel socio ecnonomico de la persona"""
-    _name = 'socio_economico'
+    _name = 'regtil.socio_economico'
     _rec_name = 'ingreso_mensual'
     discapacidad = fields.Boolean(string='¿posee alguna discapacidad?', help='la persona nombrara si tiene alguna discapacidad')
     cantidad_hijos= fields.Selection([('O','Ninguno'),('I','Uno'),('II','Dos'),('III','Tres'),('IV','Cuatro'),('Mas','Mas de 4')], help='la persona indicara si tiene hijos')
@@ -81,7 +81,7 @@ class socio_economico(models.Model):
 
 class unidad_productiva(models.Model):
     """la persona registra su inidad productiva"""
-    _name = 'unidad_productiva'
+    _name = 'regtil.unidad_productiva'
     _rec_name = 'nombre'
     nombre = fields.Char(string='Nombre de la unidad productiva', help='la persona podra colocar el nombre de su unidad productiva')
     rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
@@ -95,7 +95,7 @@ class unidad_productiva(models.Model):
 
 class tecnologia(models.Model):
     """Modelo que registra la tecnologia"""
-    _name = 'tecnologia'
+    _name = 'regtil.tecnologia'
     #_rec_name = 'tecnologia'
     tecnologia_domina = fields.Char(string='Tecnologia que domina', help='Ingresar la tecnologia que domina')
     uso_diario = fields.Char(string='cual es el uso diario ', help='Ingresar el uso diario de la tecnologia que domina ')
@@ -103,13 +103,13 @@ class tecnologia(models.Model):
 
 class ocupacion(models.Model):
     """Modelo que registra profesion de la persona"""
-    _name = 'ocupacion'
+    _name = 'regtil.ocupacion'
     #_rec_name = 'tecnologia'
     ocupacion_personal = fields.Char(string='Cual es su ocupacion', help='la persona podra colocar la ocupacion acual')
 
 class grado_instruccion(models.Model):
     """Modelo que registra profesion de la persona"""
-    _name = 'grado_instruccion'
+    _name = 'regtil.grado_instruccion'
     #_rec_name = 'tecnologia'
     grado_instruccion_personal = fields.Char(string='Cual es su grado instruccion', help='la persona podra colocar el grado_instruccion acual')
 
