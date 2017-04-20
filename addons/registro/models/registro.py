@@ -36,7 +36,7 @@ class Persona(models.Model):
     telefono = fields.Char(string='Télefono', help='Ingrese su télefono en el formato 0414-9355744')
     correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
     #tipo_vinculacion_til = fields.Selection([('A','Activista'),('U','Usuario'),('P','Productor')], string ='Vinculacion Tecnologica' , help='Ingrese su vinculacion tecnologica')
-    vinculacion_til_id = fields.Many2one('regtil.tipo_vinculacion_til', string ='Vinculacion Tecnologica' , help='Ingrese su vinculacion tecnologica')
+    vinculacion_til_id = fields.Many2one('regtil.tipo_vinculacion_til', string ='Vinculacion TIL' , help='Selección el Tipo de Vinculacion con las TIL')
     estado_id = fields.Many2one('res.country.state', string='Estado')
     municipio_id = fields.Many2one('res.country.state.municipality', string='Municipio')
     parroquia_id = fields.Many2one('res.country.state.municipality.parish', string='Parroquia')
@@ -46,7 +46,6 @@ class Persona(models.Model):
 
 class TipoVinculacionTIL(models.Model):
     _name = 'regtil.tipo_vinculacion_til'
-    _rec_name = ''
     name = fields.Char('Nombre')
     description = fields.Char('Descripción')
 
