@@ -25,7 +25,7 @@ class Persona(models.Model):
     """Modelo que se utiliza para registrar los datos basicos de cada participante del curso"""
     _name = 'regtil.persona'
     _rec_name = 'cedula'
-    cedula = fields.Integer(string='Cedula', help='Ingrese su cédula en el formato 16123123')
+    cedula = fields.Char(string='Cedula', help='Ingrese su cédula en el formato 16123123')
     primer_nombre = fields.Char(string= 'Primer Nombre', help='Ingrese su primer nombre. Ejemplo: Crisbel')
     segundo_nombre = fields.Char(string= 'Segundo Nombre', help='Ingrese su segundo nombre Ejemplo: Francisas')
     primer_apellido = fields.Char(string= 'Primer apellido', help='Ingrese su Primer apellido Ejemplo: Pinzon')
@@ -42,6 +42,13 @@ class Persona(models.Model):
     vivienda_ids = fields.One2many('regtil.vivienda', 'persona_id',string='Información de Vivienda')
     socio_economico_ids = fields.One2many('regtil.socio_economico','persona_id',string='Informacón Socio-Económica')
     unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva', string='Unidad productiva')
+
+    @api.multi
+    def name_get(self):
+        res = []
+        #personas = self.browse(cr, uid, ids, context)
+        res = [(persona.id, (persona.cedula or 'S/N') + ' ' + (persona.primer_nombre or 'S/N') + ' ' + (persona.primer_apellido or 'S/N')) for persona in self]
+        return res
 
 class TipoVinculacionTIL(models.Model):
     """Tipo de Vinculación con las Tecnologías Libres"""
