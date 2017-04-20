@@ -22,13 +22,15 @@
 {
         "name" : "registro",
         "version" : "10.0.1",
-        "author" : "Bachaco-ve",
-        "website" : "http://www.bachaco.org.ve",
-        "category" : "Desconocida",
-        "description": """  """,
+        "author" : "BachacoVE | Fundación ATTA",
+        "website" : "http://www.bachaco.org.ve | http://www.fundacionatta.org.ve",
+        "category" : "Industria TIL",
+        "description": """ Módulo para el registro de Activistas, Usuarios, Productores, Comunidades y Unidades Productivas de Tecnologías Libres """,
         "depends" : ['base','l10n_ve_dpt'],
         "init_xml" : [ ],
         "demo_xml" : [ ],
-        "update_xml" : ['views/registro_view.xml', 'security/ir.model.access.csv'],
+        "data" : ['views/registro_view.xml',
+         #'security/ir.model.access.csv'
+         ],
         "installable": True
 }
