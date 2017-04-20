@@ -33,23 +33,21 @@ class Persona(models.Model):
     sexo = fields.Selection([('M','Masculino'),('F','Femenino')], string='Sexo', help='Seleccione su sexo')
     fecha_nacimiento = fields.Date(string='Fecha de Nacimiento', help='Selecciones su fecha de nacimiento. Seleccionando la fecha en el asistente o escribiendola en el formato 01/01/1999')
     direccion = fields.Text('Dirección', help='Ingrese su direccion de habitación')
-    telefono = fields.Char(string='Télefono', help='Ingrese su télefono en el formato 0414-9355744')
+    telefono = fields.Char(string='Télefono', help='Ingrese su télefono en el formato 04149355744')
     correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
-    #tipo_vinculacion_til = fields.Selection([('A','Activista'),('U','Usuario'),('P','Productor')], string ='Vinculacion Tecnologica' , help='Ingrese su vinculacion tecnologica')
     vinculacion_til_id = fields.Many2one('regtil.tipo_vinculacion_til', string ='Vinculacion TIL' , help='Selección el Tipo de Vinculacion con las TIL')
     state_id = fields.Many2one('res.country.state', string='Estado')
     municipality_id = fields.Many2one('res.country.state.municipality', string='Municipio')
     parish_id = fields.Many2one('res.country.state.municipality.parish', string='Parroquia')
     vivienda_ids = fields.One2many('regtil.vivienda', 'persona_id',string='Información de Vivienda')
     socio_economico_ids = fields.One2many('regtil.socio_economico','persona_id',string='Informacón Socio-Económica')
-    unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva',string='Unidad productiva')
+    unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva', string='Unidad productiva')
 
 class TipoVinculacionTIL(models.Model):
     """Tipo de Vinculación con las Tecnologías Libres"""
     _name = 'regtil.tipo_vinculacion_til'
     name = fields.Char('Nombre')
     description = fields.Text('Descripción')
-
 
 class Vivienda(models.Model):
     """Registro vivienda clase persona"""
@@ -110,23 +108,29 @@ class SocioEconomicoGradoInstruccion(models.Model):
     description = fields.Text('Descripción')
 
 class UnidadProductiva(models.Model):
-    """la persona registra su inidad productiva"""
+    """Unidad Productiva o Comunidad a la que pertence"""
     _name = 'regtil.unidad_productiva'
-    _rec_name = 'nombre'
-    nombre = fields.Char(string='Nombre de la unidad productiva', help='la persona podra colocar el nombre de su unidad productiva')
-    rif = fields.Integer(string='Rif', help='Ingrese su cedula en el formato 12345678-9')
-    correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
-    facebook = fields.Char(string='Facebook', help='Ingrese su facebook con el nombre de su unidad profuctivad')
-    twitter = fields.Char(string='Twitter', help='Ingrese su twitter con el nombre de su unidad profuctivad')
-    tipo_industria = fields.Selection([('G','Grupal'),('F','Freelance'),('C','Cooperativa')], string='Tipo', help='la persona indicara el tipo de industria')
-    servicio = fields.Char(string='¿Que servicio presta ', help='Ingresa el servicio que presta la unidad productiva')
-    personas_ids = fields.Many2many('persona', string='Persona')
+    name = fields.Char(string='Nombre', help='Nombre de la unidad productiva o Comunidad')
+    tipo = fields.Selection([('C','Comunidad'),('UP','Unidad Productiva'),('CyUP','Ambas')], string='Tipo', help='Tipo')
+    figura_juridica_id = fields.Many2one('regtil.unidad_productiva.figura_juridica',string='Figura Jurídica', help="Indique la figura jurídica") 
+    rif = fields.Integer(string='RIF', help='Ingrese su RIF en el formato J123456789')
+    email = fields.Char(string='Correo Electrónico', help='Ingrese su correo electrónico en el formato ejemplo@ejemplo.com')
+    telefono = fields.Char(string='Télefono', help='Ingrese el télefono en el formato 04149355744')
+    website = fields.Char(string='Página Web', help='Ingrese su dirección web en el fomato http://www.ejemplo.com.ve')
+    facebook = fields.Char(string='Facebook', help='Ingrese su cuenta de facebook')
+    twitter = fields.Char(string='Twitter', help='Ingrese su cuenta de twitter')
+    actividad_ids = fields.Many2many('regtil.unidad_productiva.actividad',string='Actividad', help='Ingresa las actividades a las que se dedica su Comunidad/UP')
     tecnologia_ids = fields.Many2many('tecnologia', string='Tecnologia')
+    personas_ids = fields.Many2many('persona', string='Persona')
 
-class Tecnologia(models.Model):
-    """Modelo que registra la tecnologia"""
-    _name = 'regtil.tecnologia'
-    #_rec_name = 'tecnologia'
-    tecnologia_domina = fields.Char(string='Tecnologia que domina', help='Ingresar la tecnologia que domina')
-    uso_diario = fields.Char(string='cual es el uso diario ', help='Ingresar el uso diario de la tecnologia que domina ')
-    unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
+class UnidadProductivaFiguraJuridica(models.Model):
+    """Lista de figuradas jurídicas según el código de comercio venezolano y las leyes del poder popular"""
+    _name = 'regtil.unidad_productiva.figura_juridica'
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
+
+class UnidadProductivaActividad(models.Model):
+    """Lista de figuradas jurídicas según el código de comercio venezolano y las leyes del poder popular"""
+    _name = 'regtil.unidad_productiva.actividad'
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
