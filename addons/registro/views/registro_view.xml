@@ -3,14 +3,13 @@
 <data>
 
     <record model="ir.ui.view" id="view_persona_form">
-        <field name="name">persona.form</field>
-        <field name="model">persona</field>
+        <field name="name">regtil.persona.form</field>
+        <field name="model">regtil.persona</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="persona">
+            <form string="regtil.persona">
             <group col="4" colspan="1">
                 <field name="cedula" select="1"/>
-                <field name="rif" select="1"/>
                 <field name="primer_nombre" select="2"/>
                 <field name="segundo_nombre" select="0"/>
                 <field name="primer_apellido" select="0"/>
@@ -20,56 +19,77 @@
                 <separator string='Dirección' colspan="4"/>
                 <field name="direccion" colspan="4" nolabel="1" select="0"/>
                 <field name="telefono" select="0"/>
-                <field name="correo" select="0"/>
-                <field name="vinculacion_tecnologica" select="0"/>
-                <field name="estado_id" select="0"/>
-                <field name="municipio_id" select="0"/>
-                <field name="parroquia_id" select="0"/>
+                <field name="email" select="0"/>
+                <field name="vinculacion_til_id" select="0"/>
+                <field name="state_id" select="0"/>
+                <field name="municipality_id" select="0"/>
+                <field name="parish_id" select="0"/>
                 <separator string='vivienda' colspan="4"/>
                 <field name="vivienda_ids" colspan="4" nolabel="1" select="0"/>
-                <separator string='Socio Economico' colspan="4"/>
-                <field name="socio_economico_id" colspan="4" nolabel="1" select="0"/>
-                <separator string='Unidad productiva' colspan="4"/>
+                <separator string='Información Socio-Económica' colspan="4"/>
+                <field name="socio_economico_ids" colspan="4" nolabel="1" select="0"/>
+                <separator string='Información de la Unidad productiva' colspan="4"/>
                 <field name="unidad_productiva_ids" colspan="4" nolabel="1" select="0"/>
             </group>
             </form>
         </field>
     </record>
     <record model="ir.ui.view" id="view_persona_tree">
-        <field name="name">persona.tree</field>
-        <field name="model">persona</field>
+        <field name="name">regtil.persona.tree</field>
+        <field name="model">regtil.persona</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="persona">
+            <tree string="regtil.persona">
                 <field name="cedula"/>
-                <field name="rif"/>
                 <field name="primer_nombre"/>
-                <field name="segundo_nombre"/>
                 <field name="primer_apellido"/>
-                <field name="segundo_apellido"/>
                 <field name="sexo"/>
-                <field name="fecha_nacimiento"/>
-                <field name="direccion"/>
                 <field name="telefono"/>
                 <field name="correo"/>
                 <field name="vinculacion_tecnologica"/>
                 <field name="estado_id"/>
-                <field name="municipio_id"/>
-                <field name="parroquia_id"/>
-                <field name="socio_economico_id"/>
 
             </tree>
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_persona">
-        <field name="name">persona</field>
-        <field name="res_model">persona</field>
+        <field name="name">regtil.persona</field>
+        <field name="res_model">regtil.persona</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        
     </record>
     
 
+<record model="ir.ui.view" id="view_persona_form">
+        <field name="name">regtil.persona.tipo_vinculacion_til.form</field>
+        <field name="model">regtil.persona.tipo_vinculacion_til</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.persona.tipo_vinculacion_til">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_persona_tree">
+        <field name="name">regtil.persona.tipo_vinculacion_til.tree</field>
+        <field name="model">regtil.persona.tipo_vinculacion_til</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.persona.tipo_vinculacion_til">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_persona">
+        <field name="name">regtil.persona.tipo_vinculacion_til</field>
+        <field name="res_model">regtil.persona</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
         
 
         

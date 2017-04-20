@@ -34,7 +34,7 @@ class Persona(models.Model):
     fecha_nacimiento = fields.Date(string='Fecha de Nacimiento', help='Selecciones su fecha de nacimiento. Seleccionando la fecha en el asistente o escribiendola en el formato 01/01/1999')
     direccion = fields.Text('Dirección', help='Ingrese su direccion de habitación')
     telefono = fields.Char(string='Télefono', help='Ingrese su télefono en el formato 04149355744')
-    correo = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
+    email = fields.Char(string='Correo Electronico', help='Ingrese su correo electronico en el formato ejempli@ejemplo.com')
     vinculacion_til_id = fields.Many2one('regtil.tipo_vinculacion_til', string ='Vinculacion TIL' , help='Selección el Tipo de Vinculacion con las TIL')
     state_id = fields.Many2one('res.country.state', string='Estado')
     municipality_id = fields.Many2one('res.country.state.municipality', string='Municipio')
@@ -45,7 +45,7 @@ class Persona(models.Model):
 
 class TipoVinculacionTIL(models.Model):
     """Tipo de Vinculación con las Tecnologías Libres"""
-    _name = 'regtil.tipo_vinculacion_til'
+    _name = 'regtil.persona.tipo_vinculacion_til'
     name = fields.Char('Nombre')
     description = fields.Text('Descripción')
 
