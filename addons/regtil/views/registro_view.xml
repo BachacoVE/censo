@@ -235,7 +235,7 @@
         
     <record model="ir.ui.view" id="view_socio_economico_form">
         <field name="name">socio_economico.form</field>
-        <field name="model">socio_economico</field>
+        <field name="model">regtil.socio_economico</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="socio_economico">
@@ -255,7 +255,7 @@
     </record>
     <record model="ir.ui.view" id="view_socio_economico_tree">
         <field name="name">socio_economico.tree</field>
-        <field name="model">socio_economico</field>
+        <field name="model">regtil.socio_economico</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="socio_economico">
@@ -273,7 +273,7 @@
     </record>
     <record model="ir.actions.act_window" id="action_socio_economico">
         <field name="name">socio_economico</field>
-        <field name="res_model">socio_economico</field>
+        <field name="res_model">regtil.socio_economico</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
