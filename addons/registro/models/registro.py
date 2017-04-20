@@ -40,9 +40,9 @@ class Persona(models.Model):
     estado_id = fields.Many2one('res.country.state', string='Estado')
     municipio_id = fields.Many2one('res.country.state.municipality', string='Municipio')
     parroquia_id = fields.Many2one('res.country.state.municipality.parish', string='Parroquia')
-    vivienda_ids = fields.Many2many('vivienda',string='Vivienda')
-    socio_economico_id = fields.One2many('socio_economico','persona_ids',string='socio_economico')
-    unidad_productiva_ids = fields.Many2many('unidad_productiva',string='Unidad productiva')
+    vivienda_ids = fields.Many2many('regtil.vivienda',string='Vivienda')
+    socio_economico_ids = fields.One2many('regtil.socio_economico','persona_ids',string='socio_economico')
+    unidad_productiva_ids = fields.Many2many('regtil.unidad_productiva',string='Unidad productiva')
 
 class TipoVinculacionTIL(models.Model):
     _name = 'regtil.tipo_vinculacion_til'
@@ -61,7 +61,6 @@ class vivienda(models.Model):
     computadora = fields.Boolean(string='Computadora', help='la persona tildara si posee computadora')
     internet = fields.Boolean(string='Internet', help='la persona tildara si posee internet')
     persona_ids = fields.Many2many('persona',string='Persona')
-
 
 
 class socio_economico(models.Model):
