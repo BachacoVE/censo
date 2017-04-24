@@ -1,0 +1,481 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_persona_form">
+        <field name="name">regtil.persona.form</field>
+        <field name="model">regtil.persona</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.persona">
+            <group col="4" colspan="1">
+                <field name="cedula" select="1"/>
+                <field name="primer_nombre" select="2"/>
+                <field name="segundo_nombre" select="0"/>
+                <field name="primer_apellido" select="0"/>
+                <field name="segundo_apellido" select="0"/>
+                <field name="sexo" select="0"/>
+                <field name="fecha_nacimiento" select="0"/>
+                <separator string='Dirección' colspan="4"/>
+                <field name="direccion" colspan="4" nolabel="1" select="0"/>
+                <field name="telefono" select="0"/>
+                <field name="email" select="0"/>
+                <field name="vinculacion_til_id" select="0"/>
+                <field name="state_id" select="0" domain="[('country_id','=',%(base.ve)s)]"/>
+                <field name="municipality_id" domain="[('state_id','=',[state_id])]" select="0"/>
+                <field name="parish_id" domain="[('municipality_id','=',[municipality_id])]" select="0"/>
+                <separator string='vivienda' colspan="4"/>
+                <field name="vivienda_ids" colspan="4" nolabel="1" select="0"/>
+                <separator string='Información Socio-Económica' colspan="4"/>
+                <field name="socio_economico_ids" colspan="4" nolabel="1" select="0"/>
+                <separator string='Información de la Unidad productiva' colspan="4"/>
+                <field name="unidad_productiva_ids" colspan="4" nolabel="1" select="0"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_persona_tree">
+        <field name="name">regtil.persona.tree</field>
+        <field name="model">regtil.persona</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.persona">
+                <field name="cedula"/>
+                <field name="primer_nombre"/>
+                <field name="primer_apellido"/>
+                <field name="sexo"/>
+                <field name="telefono"/>
+                <field name="email"/>
+                <field name="vinculacion_til_id"/>
+                <field name="state_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_persona">
+        <field name="name">regtil.persona</field>
+        <field name="res_model">regtil.persona</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+<record model="ir.ui.view" id="view_vinculaciontil_form">
+        <field name="name">regtil.persona.tipo_vinculacion_til.form</field>
+        <field name="model">regtil.persona.tipo_vinculacion_til</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.persona.tipo_vinculacion_til">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vinculaciontil_tree">
+        <field name="name">regtil.persona.tipo_vinculacion_til.tree</field>
+        <field name="model">regtil.persona.tipo_vinculacion_til</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.persona.tipo_vinculacion_til">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vinculaciontil">
+        <field name="name">Vinculacion TIL</field>
+        <field name="res_model">regtil.persona.tipo_vinculacion_til</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+
+        
+    <record model="ir.ui.view" id="view_regtil_vivienda_form">
+        <field name="name">regtil.vivienda.form</field>
+        <field name="model">regtil.vivienda</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda">
+            <group col="4" colspan="2">
+                <field name="create_date" readonly="True" string="Fecha Registro" select="1"/>
+                <field name="tipo_id" select="2"/>
+                <field name="tenencia_id" select="0"/>
+                <field name="condicion_id" select="0"/>
+                <field name="tiene_television" select="0"/>
+                <field name="tiene_computadora" select="0"/>
+                <field name="tiene_internet" select="0"/>
+                
+                <!--separator string='Persona' colspan="4"/>
+                <field name="persona_ids" colspan="4" nolabel="1" select="0"/ -->
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_regtil_vivienda_tree">
+        <field name="name">regtil.vivienda.tree</field>
+        <field name="model">regtil.vivienda</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda">
+                <field name="create_date"/>
+                <field name="tipo_id"/>
+                <field name="tenencia_id"/>
+                <field name="condicion_id"/>
+                <field name="tiene_television"/>
+                <field name="tiene_computadora"/>
+                <field name="tiene_internet"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_regtil_vivienda">
+        <field name="name">regtil.vivienda</field>
+        <field name="res_model">regtil.vivienda</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+
+<record model="ir.ui.view" id="view_vivienda_tipo_form">
+        <field name="name">regtil.vivienda.tipo.form</field>
+        <field name="model">regtil.vivienda.tipo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda.tipo">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vivienda_tipo_tree">
+        <field name="name">regtil.vivienda.tipo.tree</field>
+        <field name="model">regtil.vivienda.tipo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda.tipo">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vivienda_tipo">
+        <field name="name">Tipo Vivienda</field>
+        <field name="res_model">regtil.vivienda.tipo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<record model="ir.ui.view" id="view_vivienda_tenencia_form">
+        <field name="name">regtil.vivienda.tenencia.form</field>
+        <field name="model">regtil.vivienda.tenencia</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda.tenencia">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vivienda_tenencia_tree">
+        <field name="name">regtil.vivienda.tenencia.tree</field>
+        <field name="model">regtil.vivienda.tenencia</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda.tenencia">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vivienda_tenencia">
+        <field name="name">Tenencia</field>
+        <field name="res_model">regtil.vivienda.tenencia</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<record model="ir.ui.view" id="view_vivienda_condicion_form">
+        <field name="name">regtil.vivienda.condicion.form</field>
+        <field name="model">regtil.vivienda.condicion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.vivienda.condicion">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_vivienda_condicion_tree">
+        <field name="name">regtil.vivienda.condicion.tree</field>
+        <field name="model">regtil.vivienda.condicion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.vivienda.condicion">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_vivienda_condicion">
+        <field name="name">Condición</field>
+        <field name="res_model">regtil.vivienda.condicion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        
+    <record model="ir.ui.view" id="view_socio_economico_form">
+        <field name="name">socio_economico.form</field>
+        <field name="model">regtil.socio_economico</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="socio_economico">
+            <group col="4" colspan="2">
+                <field name="create_date" readonly="True" string="Fecha Registro" select="1"/>
+                <field name="estado_civil" select="0"/>
+                <field name="discapacidad" select="0"/>
+                <field name="cantidad_hijos" select="1"/>
+                <field name="grupo_familiar" select="0"/>
+                <field name="trabaja" select="0"/>
+                <field name="ingreso_mensual" select="0"/>
+                <field name="ocupacion_id" select="0"/>
+                <field name="grado_instruccion_id" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_socio_economico_tree">
+        <field name="name">socio_economico.tree</field>
+        <field name="model">regtil.socio_economico</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="socio_economico">
+                <field name="create_date"/>
+                <field name="estado_civil"/>
+                <field name="discapacidad"/>
+                <field name="cantidad_hijos"/>
+                <field name="grupo_familiar"/>
+                <field name="trabaja"/>
+                <field name="ingreso_mensual"/>
+                <field name="ocupacion_id"/>
+                <field name="grado_instruccion_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_socio_economico">
+        <field name="name">socio_economico</field>
+        <field name="res_model">regtil.socio_economico</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+<record model="ir.ui.view" id="view_socio_economico_ocupacion_form">
+        <field name="name">regtil.socio_economico.ocupacion.form</field>
+        <field name="model">regtil.socio_economico.ocupacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.socio_economico.ocupacion">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_socio_economico_ocupacion_tree">
+        <field name="name">regtil.socio_economico.ocupacion.tree</field>
+        <field name="model">regtil.socio_economico.ocupacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.socio_economico.ocupacion">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_socio_economico_ocupacion">
+        <field name="name">Ocupación</field>
+        <field name="res_model">regtil.socio_economico.ocupacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<record model="ir.ui.view" id="view_socio_economico_grado_instruccion_form">
+        <field name="name">regtil.socio_economico.grado_instruccion.form</field>
+        <field name="model">regtil.socio_economico.grado_instruccion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.socio_economico.grado_instruccion">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_socio_economico_grado_instruccion_tree">
+        <field name="name">regtil.socio_economico.grado_instruccion.tree</field>
+        <field name="model">regtil.socio_economico.grado_instruccion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.socio_economico.grado_instruccion">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_socio_economico_grado_instruccion">
+        <field name="name">Grado de Instrucción</field>
+        <field name="res_model">regtil.socio_economico.grado_instruccion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        
+    <record model="ir.ui.view" id="view_regtil_unidad_productiva_form">
+        <field name="name">regtil.unidad_productiva.form</field>
+        <field name="model">regtil.unidad_productiva</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.unidad_productiva">
+            <group col="4" colspan="2">
+                <field name="name" select="1"/>
+                <field name="tipo" select="1"/>
+                <field name="figura_juridica_id" select="1"/>
+                <field name="rif" select="1"/>
+                <field name="email" select="1"/>
+                <field name="telefono" select="1"/>
+                <field name="website" select="1"/>
+                <field name="facebook" select="1"/>
+                <field name="twitter" select="1"/>
+                <field name="actividad_ids" widget="many2many_tags" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_regtil_unidad_productiva_tree">
+        <field name="name">regtil.unidad_productiva.tree</field>
+        <field name="model">regtil.unidad_productiva</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.unidad_productiva">
+                <field name="name"/>
+                <field name="rif"/>
+                <field name="email"/>
+                <field name="facebook"/>
+                <field name="twitter"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_regtil_unidad_productiva">
+        <field name="name">Unidad Productiva o Comunidad</field>
+        <field name="res_model">regtil.unidad_productiva</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+<record model="ir.ui.view" id="view_unidad_productiva_figura_juridica_form">
+        <field name="name">regtil.unidad_productiva.figura_juridica.form</field>
+        <field name="model">regtil.unidad_productiva.figura_juridica</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.unidad_productiva.figura_juridica'">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_unidad_productiva_figura_juridica_tree">
+        <field name="name">regtil.unidad_productiva.figura_juridica.tree</field>
+        <field name="model">regtil.unidad_productiva.figura_juridica</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.unidad_productiva.figura_juridica'">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_unidad_productiva_figura_juridica">
+        <field name="name">Figura Jurídica</field>
+        <field name="res_model">regtil.unidad_productiva.figura_juridica</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+<record model="ir.ui.view" id="view_unidad_productiva_actividad_form">
+        <field name="name">regtil.unidad_productiva.actividad'.form</field>
+        <field name="model">regtil.unidad_productiva.actividad</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.unidad_productiva.actividad'">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_unidad_productiva_actividad_tree">
+        <field name="name">regtil.unidad_productiva.actividad.tree</field>
+        <field name="model">regtil.unidad_productiva.actividad</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.unidad_productiva.actividad'">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_unidad_productiva_actividad">
+        <field name="name">Actividad</field>
+        <field name="res_model">regtil.unidad_productiva.actividad</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    
+<menuitem name="Registro TIL" id="menu_regtil"/>
+    <menuitem name="Registro" id="menu_registro" parent="menu_regtil"/>
+        <menuitem name="Persona" id="menu_persona" action="action_persona" parent="menu_registro"/>
+        <menuitem name="Vivienda" id="menu_vivienda" action="action_regtil_vivienda" parent="menu_registro"/>
+        <menuitem name="Socio Economico" id="menu_socio_economico" action="action_socio_economico" parent="menu_registro"/>
+        <menuitem name="UPs ó Comunidades" id="menu_unidad_productiva" action="action_regtil_unidad_productiva" parent="menu_registro"/>
+    
+    <menuitem name="Configuracion" id="menu_configuracion" parent="menu_regtil"/>
+        <menuitem name="DPT" id="menu_dpt" parent="menu_configuracion"/>
+            <menuitem name="Estado" id="menu_estado" action="l10n_ve_dpt.action_state" parent="menu_dpt"/>
+            <menuitem name="Municipio" id="menu_municipio" action="l10n_ve_dpt.action_municipality" parent="menu_dpt"/>
+            <menuitem name="Parroquia" id="menu_parroquia" action="l10n_ve_dpt.action_parish" parent="menu_dpt"/>
+        <menuitem name="Vinculacion TIL" id="menu_parroquia" action="action_vinculaciontil" parent="menu_configuracion"/>
+        <menuitem name="Tenencia" id="menu_tenencia" action="action_vivienda_tenencia" parent="menu_configuracion"/>
+        <menuitem name="Condición" id="menu_condicion" action="action_vivienda_condicion" parent="menu_configuracion"/>
+        <menuitem name="Ocupación" id="menu_ocupacion" action="action_socio_economico_ocupacion" parent="menu_configuracion"/>
+        <menuitem name="Grado Instrucción" id="menu_grado_instruccion" action="action_socio_economico_grado_instruccion" parent="menu_configuracion"/>
+        <menuitem name="Figura Jurídica" id="menu_figura_juridica" action="action_unidad_productiva_figura_juridica" parent="menu_configuracion"/>
+        <menuitem name="Actividad" id="menu_actividad" action="action_unidad_productiva_actividad" parent="menu_configuracion"/>
+
+</odoo>
+
+
+
+
+
