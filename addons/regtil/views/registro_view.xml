@@ -360,6 +360,7 @@
                 <field name="facebook" select="1"/>
                 <field name="twitter" select="1"/>
                 <field name="actividad_ids" widget="many2many_tags" select="0"/>
+                <field name="proyecto_ids" widget="many2many_tags" select="0"/>
 
             </group>
             </form>
@@ -451,6 +452,38 @@
     </record>
 
 
+    <record model="ir.ui.view" id="view_unidad_productiva_proyecto_form">
+        <field name="name">regtil.unidad_productiva.proyecto'.form</field>
+        <field name="model">regtil.unidad_productiva.proyecto</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="regtil.unidad_productiva.proyecto'">
+            <group col="4" colspan="1">
+                <field name="name" select="1"/>
+                <field name="description" select="1"/>
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_unidad_productiva_proyecto_tree">
+        <field name="name">regtil.unidad_productiva.proyecto.tree</field>
+        <field name="model">regtil.unidad_productiva.proyecto</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="regtil.unidad_productiva.proyecto'">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_unidad_productiva_proyecto">
+        <field name="name">Proyecto</field>
+        <field name="res_model">regtil.unidad_productiva.proyecto</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
 
     
 <menuitem name="Registro TIL" id="menu_regtil"/>
@@ -472,7 +505,7 @@
         <menuitem name="Grado Instrucción" id="menu_grado_instruccion" action="action_socio_economico_grado_instruccion" parent="menu_configuracion"/>
         <menuitem name="Figura Jurídica" id="menu_figura_juridica" action="action_unidad_productiva_figura_juridica" parent="menu_configuracion"/>
         <menuitem name="Actividad" id="menu_actividad" action="action_unidad_productiva_actividad" parent="menu_configuracion"/>
-
+        <menuitem name="Proyecto" id="menu_proyecto" action="action_unidad_productiva_proyecto" parent="menu_configuracion"/>
 </odoo>
 
 
