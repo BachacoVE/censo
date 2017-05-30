@@ -126,6 +126,7 @@ class UnidadProductiva(models.Model):
     facebook = fields.Char(string='Facebook', help='Ingrese su cuenta de facebook')
     twitter = fields.Char(string='Twitter', help='Ingrese su cuenta de twitter')
     actividad_ids = fields.Many2many('regtil.unidad_productiva.actividad', string='Actividades', help='Ingresa las actividades a las que se dedica su Comunidad/UP')
+    proyecto_ids = fields.Many2many('regtil.unidad_productiva.proyecto', string='Proyectos', help='Ingresa los proyevto que tenga su Comunidad/UP')
     personas_ids = fields.Many2many('regtil.persona', string='Persona')
 
 class UnidadProductivaFiguraJuridica(models.Model):
@@ -139,3 +140,10 @@ class UnidadProductivaActividad(models.Model):
     _name = 'regtil.unidad_productiva.actividad'
     name = fields.Char('Nombre')
     description = fields.Text('Descripción')
+
+class UnidadProductivaProyecto(models.Model):
+    """Lista de figuradas jurídicas según el código de comercio venezolano y las leyes del poder popular"""
+    _name = 'regtil.unidad_productiva.proyecto'
+    name = fields.Char('Nombre')
+    description = fields.Text('Descripción')
+
